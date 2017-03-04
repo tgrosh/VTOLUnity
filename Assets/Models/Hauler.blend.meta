@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 714f8024e3782344e82ec3df8448e70a
+timeCreated: 1488119046
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: Cockpit
+    100004: Cylinder
+    100006: Cylinder_001
+    100008: Front_Grill
+    100010: FrontWindow
+    100012: //RootNode
+    100014: Landing_Gear_Front_Left
+    100016: Landing_Gear_Front_Right
+    100018: Landing_Gear_Left_Rear
+    100020: LandingGear_Right_Rear
+    100022: Plane
+    100024: Porthole_Glass
+    100026: Rear_Accent
+    100028: TopWindow
+    400000: Body
+    400002: Cockpit
+    400004: Cylinder
+    400006: Cylinder_001
+    400008: Front_Grill
+    400010: FrontWindow
+    400012: //RootNode
+    400014: Landing_Gear_Front_Left
+    400016: Landing_Gear_Front_Right
+    400018: Landing_Gear_Left_Rear
+    400020: LandingGear_Right_Rear
+    400022: Plane
+    400024: Porthole_Glass
+    400026: Rear_Accent
+    400028: TopWindow
+    2300000: Body
+    2300002: Cockpit
+    2300004: Cylinder
+    2300006: Cylinder_001
+    2300008: Front_Grill
+    2300010: FrontWindow
+    2300012: Landing_Gear_Front_Left
+    2300014: Landing_Gear_Front_Right
+    2300016: Landing_Gear_Left_Rear
+    2300018: LandingGear_Right_Rear
+    2300020: Plane
+    2300022: Porthole_Glass
+    2300024: Rear_Accent
+    2300026: TopWindow
+    3300000: Body
+    3300002: Cockpit
+    3300004: Cylinder
+    3300006: Cylinder_001
+    3300008: Front_Grill
+    3300010: FrontWindow
+    3300012: Landing_Gear_Front_Left
+    3300014: Landing_Gear_Front_Right
+    3300016: Landing_Gear_Left_Rear
+    3300018: LandingGear_Right_Rear
+    3300020: Plane
+    3300022: Porthole_Glass
+    3300024: Rear_Accent
+    3300026: TopWindow
+    4300000: Cylinder_001
+    4300002: Cylinder
+    4300004: Plane
+    4300006: Cockpit
+    4300008: Landing_Gear_Front_Right
+    4300010: LandingGear_Right_Rear
+    4300012: Landing_Gear_Left_Rear
+    4300014: Landing_Gear_Front_Left
+    4300016: Porthole_Glass
+    4300018: Front_Grill
+    4300020: Rear_Accent
+    4300022: TopWindow
+    4300024: FrontWindow
+    4300026: Body
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
