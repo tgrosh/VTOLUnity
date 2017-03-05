@@ -45,7 +45,10 @@ public class Thruster : MonoBehaviour {
             thrustValue = 0;
         }
 
-        forceBody.AddRelativeForce(Vector3.up * thrustForce * thrustValue, ForceMode.Force);
-        fuelTank.Drain(fuelPerSecond * Time.fixedDeltaTime * thrustValue);
+        if (thrustValue > 0)
+        {
+            forceBody.AddRelativeForce(Vector3.up * thrustForce * thrustValue, ForceMode.Force);
+            fuelTank.Drain(fuelPerSecond * Time.fixedDeltaTime * thrustValue);
+        }
     }
 }
