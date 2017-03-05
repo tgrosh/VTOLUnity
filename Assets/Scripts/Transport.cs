@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Transport : MonoBehaviour {
     public Rigidbody body;
-    public Thruster[] thrusters;
     public Winch winch;
-
-    public float thrustForce;
+    public Thruster[] thrusters;
+    
     public float maxRotation;
     public float rotationSpeed;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start()
+    {
+    }
 
     void Update()
     {        
@@ -46,10 +45,6 @@ public class Transport : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (Input.GetAxis("Vertical") > 0)
-        {
-            body.AddRelativeForce(Vector3.up * thrustForce * Input.GetAxis("Vertical"), ForceMode.Force);            
-        }
         Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
 
@@ -57,7 +52,7 @@ public class Transport : MonoBehaviour {
         {
             foreach (Thruster t in thrusters)
             {
-                t.thrustValue = Input.GetAxis("Vertical");
+                t.thrustValue = Input.GetAxis("Vertical");                
             }
         }
 	}    
