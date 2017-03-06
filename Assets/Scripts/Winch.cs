@@ -14,4 +14,9 @@ public class Winch : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Connect(WinchPoint winchPoint)
+    {
+        hook.Connect(winchPoint);
+    }
 }

@@ -30,7 +30,6 @@ public class Explosion : MonoBehaviour {
 
     public void Explode(float force, float radius)
     {
-        //temporarily restore timescale
         AudioSource.PlayClipAtPoint(explosionAudioClip, transform.position);
 
         if (force > 0f)

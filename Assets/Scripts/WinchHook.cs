@@ -18,6 +18,7 @@ public class WinchHook : MonoBehaviour {
 
     public void Connect(WinchPoint winchPoint)
     {
+        this.winchPoint = winchPoint;
         winchPoint.hook = this;
         transform.position = winchPoint.transform.position;
         joint = CreateHingeJoint(winchPoint.winchable.gameObject, GetComponent<Rigidbody>(), new Vector3(0, .5f, 0));
@@ -34,15 +35,15 @@ public class WinchHook : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        winchPoint = collider.gameObject.GetComponent<WinchPoint>();
+        //WinchPoint winchPoint = collider.gameObject.GetComponent<WinchPoint>();
 
-        if (winchPoint != null && joint == null)
-        {
-            //joint = CreateHingeJoint(hook.gameObject, container.GetComponent<Rigidbody>(), new Vector3(0, -1.05f, 0));
-            //joint = CreateFixedJoint(hook.gameObject, container.GetComponent<Rigidbody>(), new Vector3(0, -1.05f, 0));
+        //if (winchPoint != null && joint == null)
+        //{
+        //    //joint = CreateHingeJoint(hook.gameObject, container.GetComponent<Rigidbody>(), new Vector3(0, -1.05f, 0));
+        //    //joint = CreateFixedJoint(hook.gameObject, container.GetComponent<Rigidbody>(), new Vector3(0, -1.05f, 0));
 
-            Connect(winchPoint);
-        }
+        //    Connect(winchPoint);
+        //}
     }
 
     Joint CreateHingeJoint(GameObject connectedFrom, Rigidbody connectedTo, Vector3 anchorPoint)

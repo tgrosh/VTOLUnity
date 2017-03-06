@@ -12,6 +12,8 @@ public class Transport : Explodable {
     public float impactDamageThreshold;
     public float maxRotation;
     public float rotationSpeed;
+    public float winchProximityMax;
+    public float winchProximityMin;
     
     // Use this for initialization
     void Start()
@@ -32,16 +34,17 @@ public class Transport : Explodable {
             if (!winch.gameObject.activeInHierarchy)
             {
                 RaycastHit hit;
-                Physics.Raycast(winch.transform.position, Vector3.down, out hit, 1f);
+                Physics.Raycast(winch.transform.position, Vector3.down, out hit, winchProximityMax);
                 if (hit.collider != null)
                 {
                     WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
                     if (winchPoint != null)
                     {
                         //Debug.Log("Distance to Winch Point: " + hit.distance);
-                        if (hit.distance > .33f)
+                        if (hit.distance > winchProximityMin)
                         {
                             winch.gameObject.SetActive(true);
+                            winch.Connect(winchPoint);
                         }
                     }
                 }                
@@ -93,18 +96,15 @@ public class Transport : Explodable {
                
         Destroy(transform.Find("CenterOfMass").gameObject);
         Destroy(GetComponent<Rigidbody>());
+        foreach (Thruster t in thrusters)
+        {
+            Destroy(t);
+        }
 
         Transform hauler = transform.Find("Hauler");
         foreach (Transform child in hauler)
         {
-            if (child.name == "Body")
-            {
-                Destroy(child.gameObject);
-            }
-            else
-            {
-                child.gameObject.AddComponent<Rigidbody>();
-            }
+            child.gameObject.AddComponent<Rigidbody>();
         }
 
         base.Explode();
