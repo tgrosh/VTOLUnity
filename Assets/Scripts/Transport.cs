@@ -15,9 +15,7 @@ public class Transport : Explodable {
     public float rotationSpeed;
     public float winchProximityMax;
     public float winchProximityMin;
-
-    bool facingRight;
-    
+        
     // Use this for initialization
     void Start()
     {
@@ -63,40 +61,21 @@ public class Transport : Explodable {
     void FixedUpdate()
     {
         if (exploded) return;
+                
+        if (body.velocity.z < -.05)
+        {
+            Quaternion actorRotation = Quaternion.Lerp(actor.transform.localRotation, Quaternion.Euler(new Vector3(0, 0f, 0)), Time.fixedDeltaTime * rotationSpeed);
+            actor.transform.localRotation = actorRotation;
+        }
+        else if (body.velocity.z > .05)
+        {
+            Quaternion actorRotation = Quaternion.Lerp(actor.transform.localRotation, Quaternion.Euler(new Vector3(0, 180f, 0)), Time.fixedDeltaTime * rotationSpeed);
+            actor.transform.localRotation = actorRotation;
+        }
 
-        float bodyAngleY = 0;
-        if (body.velocity.z < -.05 && facingRight)
-        {
-            //actor.transform.localEulerAngles = Vector3.zero;
-            bodyAngleY = 0;
-            Debug.LogError("RESETTING to " + bodyAngleY);
-        }
-        else if (body.velocity.z > .05 && !facingRight)
-        {
-            //actor.transform.localEulerAngles = new Vector3(0, 180f, 0);
-            bodyAngleY = -180f;
-            Debug.LogWarning("ROTATING to " + bodyAngleY);
-        }
-        
-        Vector3 bodyAngle = new Vector3(maxRotation * Input.GetAxis("Horizontal"), bodyAngleY, 0);
-
-        if (facingRight)
-        {
-            bodyAngle.x *= -1f;
-        }
-        Debug.LogWarning("bodyAngle " + bodyAngle);
-        Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(bodyAngle), Time.fixedDeltaTime * rotationSpeed);
+        Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
-        //transform.rotation = newRotation;
-        Debug.LogWarning("bodyRotation " + newRotation.eulerAngles);
 
-        if (bodyAngle.y > 175f)
-        {
-            facingRight = true;
-        } else if (bodyAngle.y < 5f)
-        {
-            facingRight = false;
-        }
 
         if (Input.GetAxis("Vertical") >= 0)
         {
