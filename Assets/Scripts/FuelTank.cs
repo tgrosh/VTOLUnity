@@ -5,11 +5,13 @@ using UnityEngine;
 public class FuelTank : MonoBehaviour {
     public float fuelRemaining;
     public float maxFuel;
+    public FuelGauge fuelGauge;
 
     // Use this for initialization
     void Start () {
         fuelRemaining = maxFuel;
-	}
+        fuelGauge.value = fuelRemaining / maxFuel;
+    }
 
     void Update()
     {
@@ -23,6 +25,7 @@ public class FuelTank : MonoBehaviour {
         {
             fuelRemaining = 0;
         }
+        fuelGauge.value = fuelRemaining / maxFuel;
     }
 
     public void Fill(float fillAmount)
@@ -32,5 +35,6 @@ public class FuelTank : MonoBehaviour {
         {
             fuelRemaining = maxFuel;
         }
+        fuelGauge.value = fuelRemaining / maxFuel;
     }
 }
