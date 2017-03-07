@@ -26,7 +26,7 @@ public class FuelGauge : MonoBehaviour {
         if (value < .25f) {
             filler.color = labelBackground.color = Color.Lerp(filler.color, Color.red, Time.deltaTime * colorTranistionSpeed);
             label.color = Color.Lerp(label.color, Color.white, Time.deltaTime * colorTranistionSpeed);
-        } else if (value < .75f)
+        } else if (value < .5f)
         {
             filler.color = labelBackground.color = Color.Lerp(filler.color, Color.yellow, Time.deltaTime * colorTranistionSpeed);
             label.color = Color.Lerp(label.color, Color.black, Time.deltaTime * colorTranistionSpeed);
