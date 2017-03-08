@@ -41,7 +41,6 @@ public class Transport : Explodable {
                     WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
                     if (winchPoint != null)
                     {
-                        //Debug.Log("Distance to Winch Point: " + hit.distance);
                         if (hit.distance > winchProximityMin)
                         {
                             winch.gameObject.SetActive(true);

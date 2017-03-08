@@ -15,7 +15,7 @@ public class FuelTank : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log("Fuel Remaining: " + fuelRemaining);
+        
     }
 	
     public void Drain(float drainAmount)
