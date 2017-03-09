@@ -13,10 +13,10 @@ public class DropPoint : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    void OnTriggerEnter(Collider collider)
+    
+    void OnCollisionEnter(Collision collision)
     {
-        Winchable winchable = collider.gameObject.GetComponent<Winchable>();
+        Winchable winchable = collision.gameObject.GetComponent<Winchable>();
 
         if (winchable != null && winchable.winchPoint.hook != null)
         {
