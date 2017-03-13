@@ -15,6 +15,7 @@ public class Transport : Explodable {
     public float rotationSpeed;
     public float winchProximityMax;
     public float winchProximityMin;
+    public bool thrustersEnabled = true;
         
     // Use this for initialization
     void Start()
@@ -75,12 +76,16 @@ public class Transport : Explodable {
         Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
 
-
-        if (Input.GetAxis("Vertical") >= 0)
+        float throttle = Input.GetAxis("Vertical");
+        if (!thrustersEnabled)
+        {
+            throttle = 0;
+        }
+        if (throttle >= 0)
         {
             foreach (Thruster t in thrusters)
             {
-                t.thrustValue = Input.GetAxis("Vertical");
+                t.thrustValue = throttle;
             }
         }
     }
@@ -101,7 +106,7 @@ public class Transport : Explodable {
             }
         }
     }
-        
+            
     public override void Explode()
     {
         Camera.main.GetComponent<SmoothFollow>().target = null; 
