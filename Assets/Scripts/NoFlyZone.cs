@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NoFlyZone : MonoBehaviour {
-    public float forceScale;
-
 	// Use this for initialization
 	void Start () {
 		
