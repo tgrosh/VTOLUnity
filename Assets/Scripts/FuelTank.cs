@@ -8,11 +8,12 @@ public class FuelTank : MonoBehaviour {
     public FuelGauge fuelGauge;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         fuelRemaining = maxFuel;
-        fuelGauge.value = fuelRemaining / maxFuel;
+        SetFuelGauge();
     }
-
+    
     void Update()
     {
 
@@ -25,7 +26,7 @@ public class FuelTank : MonoBehaviour {
         {
             fuelRemaining = 0;
         }
-        fuelGauge.value = fuelRemaining / maxFuel;
+        SetFuelGauge();
     }
 
     public void Fill(float fillAmount)
@@ -35,13 +36,21 @@ public class FuelTank : MonoBehaviour {
         {
             fuelRemaining = maxFuel;
         }
-        fuelGauge.value = fuelRemaining / maxFuel;
+        SetFuelGauge();
     }
 
     public bool isFull {
         get
         {
             return fuelRemaining >= maxFuel;
+        }
+    }
+    
+    private void SetFuelGauge()
+    {
+        if (fuelGauge != null && maxFuel > 0)
+        {
+            fuelGauge.value = fuelRemaining / maxFuel;
         }
     }
 }
