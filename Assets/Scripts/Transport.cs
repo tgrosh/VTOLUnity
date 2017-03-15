@@ -109,21 +109,24 @@ public class Transport : Explodable {
             
     public override void Explode()
     {
-        Camera.main.GetComponent<SmoothFollow>().target = null; 
-               
-        Destroy(transform.Find("CenterOfMass").gameObject);
-        Destroy(GetComponent<Rigidbody>());
-        foreach (Thruster t in thrusters)
+        if (!exploded)
         {
-            Destroy(t);
-        }
+            Camera.main.GetComponent<SmoothFollow>().target = null;
 
-        Transform hauler = transform.Find("Hauler");
-        foreach (Transform child in hauler)
-        {
-            child.gameObject.AddComponent<Rigidbody>();
-        }
+            Destroy(transform.Find("CenterOfMass").gameObject);
+            Destroy(GetComponent<Rigidbody>());
+            foreach (Thruster t in thrusters)
+            {
+                Destroy(t);
+            }
 
-        base.Explode();
+            Transform hauler = transform.Find("Hauler");
+            foreach (Transform child in hauler)
+            {
+                child.gameObject.AddComponent<Rigidbody>();
+            }
+
+            base.Explode();
+        }
     }
 }
