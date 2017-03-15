@@ -1,12 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SparkBarrier : MonoBehaviour {
+public class SparkBarrier : Triggereble {
+    public bool isActive = true;
 
-	// Use this for initialization
-	void Start () {
-		
+    Sparker[] sparkers;
+
+    // Use this for initialization
+    void Start () {
+        sparkers = transform.GetComponentsInChildren<Sparker>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +25,16 @@ public class SparkBarrier : MonoBehaviour {
         if (transport != null)
         {
             transport.Explode();
+        }
+    }
+
+    public override void OnTrigger(Trigger trigger)
+    {
+        isActive = !isActive;
+        foreach (Sparker sparker in sparkers)
+        {
+            sparker.lightningBolt.SetActive(isActive);
+            sparker.trigger.enabled = isActive;
         }
     }
 }
