@@ -106,6 +106,13 @@ public class Transport : Explodable {
             }
         }
     }
+
+    void OnParticleCollision(GameObject go)
+    {
+        Vector3 direction = transform.position - go.transform.position;
+        float force = 200 * go.transform.localScale.y;
+        body.AddForce(direction.normalized * force, ForceMode.Impulse);
+    }
             
     public override void Explode()
     {
