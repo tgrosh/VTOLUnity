@@ -9,6 +9,7 @@ public class Transport : Explodable {
     public Winch winch;
     public Thruster[] thrusters;
     public GameObject spotLight;
+    public GameObject[] statusLEDs;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
