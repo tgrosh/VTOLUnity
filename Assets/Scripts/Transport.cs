@@ -8,6 +8,7 @@ public class Transport : Explodable {
     public GameObject actor;
     public Winch winch;
     public Thruster[] thrusters;
+    public GameObject spotLight;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
@@ -54,6 +55,11 @@ public class Transport : Explodable {
                 winch.gameObject.SetActive(false);
                 winch.hook.Disconnect();
             }
+        }
+
+        if (Input.GetButtonDown("R3"))
+        {
+            spotLight.SetActive(!spotLight.activeInHierarchy);
         }
     }
 
