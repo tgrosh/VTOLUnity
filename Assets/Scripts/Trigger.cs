@@ -8,7 +8,7 @@ public class Trigger : Triggereble {
     public bool transportTriggerOnly = true;
 
     GameObject lastColliderRoot;
-    List<Collider> colliders = new List<Collider>();
+    Dictionary<Collider, GameObject> colliderDictionary = new Dictionary<Collider, GameObject>();
     bool triggerIsActive = true;
 
 	// Use this for initialization
@@ -18,7 +18,20 @@ public class Trigger : Triggereble {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        List<Collider> collidersToRemove = new List<Collider>();
+               
+		foreach (Collider collider in colliderDictionary.Keys)
+        {
+            if (!collider.gameObject.activeInHierarchy)
+            {
+                collidersToRemove.Add(collider);                
+            }
+        }
+
+        foreach (Collider collider in collidersToRemove)
+        {
+            colliderDictionary.Remove(collider);
+        }
 	}
 
     void OnTriggerEnter(Collider collider)
@@ -31,21 +44,25 @@ public class Trigger : Triggereble {
         {
             return;
         }
-
-        colliders.Add(collider);
-        if (lastColliderRoot != colliderRoot)
+        
+        if (lastColliderRoot != colliderRoot) //new root
         {
             target.OnTrigger(this);
         }
-        lastColliderRoot = colliderRoot;
+        lastColliderRoot = colliderRoot; //this root is now the last root
+
+        colliderDictionary.Add(collider, colliderRoot);
+        Debug.Log(gameObject.name + " Count: " + colliderDictionary.Count);
     }
     
     void OnTriggerExit(Collider collider)
     {
         if (!triggerIsActive) return;
 
-        colliders.Remove(collider);
-        if (colliders.Count == 0)
+        GameObject colliderRoot = collider.transform.root.gameObject;
+        colliderDictionary.Remove(collider);
+        Debug.Log(gameObject.name + " Count: " + colliderDictionary.Count);
+        if (!colliderDictionary.ContainsValue(colliderRoot))
         {
             lastColliderRoot = null;
         }
