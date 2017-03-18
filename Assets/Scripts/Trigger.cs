@@ -52,7 +52,6 @@ public class Trigger : Triggereble {
         lastColliderRoot = colliderRoot; //this root is now the last root
 
         colliderDictionary.Add(collider, colliderRoot);
-        Debug.Log(gameObject.name + " Count: " + colliderDictionary.Count);
     }
     
     void OnTriggerExit(Collider collider)
@@ -61,7 +60,7 @@ public class Trigger : Triggereble {
 
         GameObject colliderRoot = collider.transform.root.gameObject;
         colliderDictionary.Remove(collider);
-        Debug.Log(gameObject.name + " Count: " + colliderDictionary.Count);
+
         if (!colliderDictionary.ContainsValue(colliderRoot))
         {
             lastColliderRoot = null;

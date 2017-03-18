@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Utility;
@@ -18,6 +19,11 @@ public class Transport : Explodable {
     public float winchProximityMax;
     public float winchProximityMin;
     public bool thrustersEnabled = true;
+
+    bool inShutdown;
+    float shutdownDuration = 5f;
+    float currentShutdownTime;
+    int currentStatus; //0 = green, 1 = red
         
     // Use this for initialization
     void Start()
@@ -32,6 +38,28 @@ public class Transport : Explodable {
     void Update()
     {
         if (exploded) return;
+
+        if (inShutdown)
+        {
+            if (currentShutdownTime <= shutdownDuration)
+            {
+                currentShutdownTime += Time.deltaTime;
+                thrustersEnabled = false;
+                currentStatus = 1;
+            } else
+            {
+                currentShutdownTime = 0f;
+                thrustersEnabled = true;
+                currentStatus = 0;
+                inShutdown = false;
+            }
+        }
+
+        foreach (GameObject led in statusLEDs)
+        {
+            Debug.Log("Setting LED status to " + currentStatus);
+            led.GetComponent<Animator>().SetInteger("status", currentStatus);
+        }
          
         if (Input.GetButtonDown("RightBumper"))
         {
@@ -62,6 +90,12 @@ public class Transport : Explodable {
         {
             spotLight.SetActive(!spotLight.activeInHierarchy);
         }
+    }
+
+    public void Shutdown()
+    {
+        Debug.Log("Shutdown called");
+        inShutdown = true;
     }
 
     // Update is called once per frame
