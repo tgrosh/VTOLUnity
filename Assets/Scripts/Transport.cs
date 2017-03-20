@@ -57,7 +57,6 @@ public class Transport : Explodable {
 
         foreach (GameObject led in statusLEDs)
         {
-            Debug.Log("Setting LED status to " + currentStatus);
             led.GetComponent<Animator>().SetInteger("status", currentStatus);
         }
          
@@ -94,7 +93,6 @@ public class Transport : Explodable {
 
     public void Shutdown()
     {
-        Debug.Log("Shutdown called");
         inShutdown = true;
     }
 
@@ -150,8 +148,13 @@ public class Transport : Explodable {
 
     void OnParticleCollision(GameObject go)
     {
-        Vector3 direction = transform.position - go.transform.position;
-        float force = 200 * go.transform.localScale.y;
+        float force = go.transform.localScale.y;
+        ParticleCollider pCol = go.GetComponent<ParticleCollider>();
+        if (pCol != null)
+        {
+            force *= pCol.forceScale;
+        }
+        Vector3 direction = transform.position - go.transform.position;        
         body.AddForce(direction.normalized * force, ForceMode.Impulse);
     }
             
