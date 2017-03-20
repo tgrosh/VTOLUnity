@@ -11,6 +11,7 @@ public class Transport : Explodable {
     public Thruster[] thrusters;
     public GameObject spotLight;
     public GameObject[] statusLEDs;
+    public GameObject[] landingLights;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
@@ -45,6 +46,7 @@ public class Transport : Explodable {
             {
                 currentShutdownTime += Time.deltaTime;
                 thrustersEnabled = false;
+                spotLight.SetActive(!spotLight.activeInHierarchy);
                 currentStatus = 1;
             } else
             {
@@ -53,42 +55,60 @@ public class Transport : Explodable {
                 currentStatus = 0;
                 inShutdown = false;
             }
-        }
-
-        foreach (GameObject led in statusLEDs)
+        } else
         {
-            led.GetComponent<Animator>().SetInteger("status", currentStatus);
-        }
-         
-        if (Input.GetButtonDown("RightBumper"))
-        {
-            if (!winch.gameObject.activeInHierarchy)
+            RaycastHit hit;
+            Physics.Raycast(winch.transform.position, Vector3.down, out hit, winchProximityMax);
+            
+            if (hit.collider != null)
             {
-                RaycastHit hit;
-                Physics.Raycast(winch.transform.position, Vector3.down, out hit, winchProximityMax);
-                if (hit.collider != null)
+                bool landing = hit.collider.GetComponent<Pad>() != null;
+                foreach (GameObject light in landingLights)
                 {
-                    WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
-                    if (winchPoint != null)
-                    {
-                        if (hit.distance > winchProximityMin)
-                        {
-                            winch.gameObject.SetActive(true);
-                            winch.Connect(winchPoint);
-                        }
-                    }
-                }                
+                    light.SetActive(landing);
+                }
             } else
             {
-                winch.gameObject.SetActive(false);
-                winch.hook.Disconnect();
+                foreach (GameObject light in landingLights)
+                {
+                    light.SetActive(false);
+                }
             }
-        }
 
-        if (Input.GetButtonDown("R3"))
-        {
-            spotLight.SetActive(!spotLight.activeInHierarchy);
-        }
+            foreach (GameObject led in statusLEDs)
+            {
+                led.GetComponent<Animator>().SetInteger("status", currentStatus);
+            }
+
+            if (Input.GetButtonDown("RightBumper"))
+            {
+                if (!winch.gameObject.activeInHierarchy)
+                {
+                    if (hit.collider != null)
+                    {
+                        WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
+                        if (winchPoint != null)
+                        {
+                            if (hit.distance > winchProximityMin)
+                            {
+                                winch.gameObject.SetActive(true);
+                                winch.Connect(winchPoint);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    winch.gameObject.SetActive(false);
+                    winch.hook.Disconnect();
+                }
+            }
+
+            if (Input.GetButtonDown("R3"))
+            {
+                spotLight.SetActive(!spotLight.activeInHierarchy);
+            }
+        }                
     }
 
     public void Shutdown()
