@@ -39,6 +39,11 @@ public class Transport : Explodable {
     void Update()
     {
         if (exploded) return;
+        
+        foreach (GameObject led in statusLEDs)
+        {
+            led.GetComponent<Animator>().SetInteger("status", currentStatus);
+        }
 
         if (inShutdown)
         {
@@ -46,7 +51,7 @@ public class Transport : Explodable {
             {
                 currentShutdownTime += Time.deltaTime;
                 thrustersEnabled = false;
-                spotLight.SetActive(!spotLight.activeInHierarchy);
+                spotLight.SetActive(false);
                 currentStatus = 1;
             } else
             {
@@ -74,12 +79,7 @@ public class Transport : Explodable {
                     light.SetActive(false);
                 }
             }
-
-            foreach (GameObject led in statusLEDs)
-            {
-                led.GetComponent<Animator>().SetInteger("status", currentStatus);
-            }
-
+            
             if (Input.GetButtonDown("RightBumper"))
             {
                 if (!winch.gameObject.activeInHierarchy)
