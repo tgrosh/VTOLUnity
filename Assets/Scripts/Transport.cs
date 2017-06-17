@@ -9,6 +9,7 @@ public class Transport : Explodable {
     public GameObject actor;
     public Winch winch;
     public Thruster[] thrusters;
+    public CargoHold cargoBay = new CargoHold();
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
@@ -29,6 +30,8 @@ public class Transport : Explodable {
     // Use this for initialization
     void Start()
     {
+        cargoBay.cargo.Add(new GameObject());
+        Debug.Log(cargoBay.cargo.Count);
         currentIntegrity = maxIntegrity;
         Explodable e = GetComponent<Explodable>();
         explosionPrefab = e.explosionPrefab;

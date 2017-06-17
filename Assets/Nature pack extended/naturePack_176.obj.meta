@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: 6d272c65794ef4d43a7ac245401981ec
-timeCreated: 1466334990
-licenseType: Store
+guid: 74ca037e41c52ef4895bebc0284b7d02
+timeCreated: 1490048138
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Mesh1_Plate_Grass_Model
+    100000: default
     100002: //RootNode
-    100004: default
-    400000: Mesh1_Plate_Grass_Model
+    400000: default
     400002: //RootNode
-    400004: default
-    2300000: Mesh1_Plate_Grass_Model
-    2300002: default
-    3300000: Mesh1_Plate_Grass_Model
-    3300002: default
-    4300000: Mesh1_Plate_Grass_Model
-    4300002: default
+    2300000: default
+    3300000: default
+    4300000: default
   materials:
     importMaterials: 1
     materialName: 0
@@ -77,7 +72,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
