@@ -9,7 +9,7 @@ public class Transport : Explodable {
     public GameObject actor;
     public Winch winch;
     public Thruster[] thrusters;
-    public CargoHold cargoBay = new CargoHold();
+    public CargoHold cargoHold;
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
@@ -30,8 +30,6 @@ public class Transport : Explodable {
     // Use this for initialization
     void Start()
     {
-        cargoBay.cargo.Add(new GameObject());
-        Debug.Log(cargoBay.cargo.Count);
         currentIntegrity = maxIntegrity;
         Explodable e = GetComponent<Explodable>();
         explosionPrefab = e.explosionPrefab;
@@ -96,7 +94,25 @@ public class Transport : Explodable {
                             {
                                 winch.gameObject.SetActive(true);
                                 winch.Connect(winchPoint);
+
+                                Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
+                                if (cargo != null)
+                                {
+                                    winch.Retract();
+                                }
                             }
+                        } else
+                        {
+                            //Debug.Log("Looking for Cargo");
+                            //Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
+                            //if (cargo != null)
+                            //{
+                            //    //ingest the cargo
+                            //    if (this.cargoHold.Store(cargo))
+                            //    {
+                            //        Debug.Log("Stored Cargo");
+                            //    }
+                            //}
                         }
                     }
                 }
@@ -112,6 +128,17 @@ public class Transport : Explodable {
                 spotLight.SetActive(!spotLight.activeInHierarchy);
             }
         }                
+    }
+
+    private IEnumerator StoreCargo(Cargo cargo, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (this.cargoHold.Store(cargo))
+        {
+            winch.gameObject.SetActive(false);
+            Debug.Log("Stored Cargo");
+        }
     }
 
     public void Shutdown()

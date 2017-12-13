@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
 
-public class CargoList: List<GameObject>
+public class CargoList: List<Cargo>
 {
     public int maxCapacity;
 
-    public new bool Add(GameObject cargo)
+    public new bool Add(Cargo cargo)
     {
         if (Count < maxCapacity)
         {
-            Add(cargo);
+            base.Add(cargo);
             return true;
         }
 
