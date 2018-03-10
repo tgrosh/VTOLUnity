@@ -198,7 +198,7 @@ public class Transport : Explodable {
     {
         if (!exploded)
         {
-            Camera.main.GetComponent<SmoothFollow>().target = null;
+            Camera.main.GetComponent<Cinemachine.CinemachineBrain>().ActiveVirtualCamera.Follow = null;
 
             Destroy(transform.Find("CenterOfMass").gameObject);
             Destroy(GetComponent<Rigidbody>());
