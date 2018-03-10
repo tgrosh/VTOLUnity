@@ -98,21 +98,9 @@ public class Transport : Explodable {
                                 Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
                                 if (cargo != null)
                                 {
-                                    winch.Retract();
+                                    StoreCargo(cargo);
                                 }
                             }
-                        } else
-                        {
-                            //Debug.Log("Looking for Cargo");
-                            //Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
-                            //if (cargo != null)
-                            //{
-                            //    //ingest the cargo
-                            //    if (this.cargoHold.Store(cargo))
-                            //    {
-                            //        Debug.Log("Stored Cargo");
-                            //    }
-                            //}
                         }
                     }
                 }
@@ -130,10 +118,8 @@ public class Transport : Explodable {
         }                
     }
 
-    private IEnumerator StoreCargo(Cargo cargo, float delay)
+    private void StoreCargo(Cargo cargo)
     {
-        yield return new WaitForSeconds(delay);
-
         if (this.cargoHold.Store(cargo))
         {
             winch.gameObject.SetActive(false);
