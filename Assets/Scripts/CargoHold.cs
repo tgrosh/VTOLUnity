@@ -25,4 +25,22 @@ public class CargoHold : MonoBehaviour
 
         return false;
     }
+
+    public Cargo Peek()
+    {
+        if (_cargo.Count == 0) return null;
+
+        return this._cargo.First();
+    }
+
+    public void Drop(Transform dropPoint)
+    {
+        if (_cargo.Count == 0) return;
+
+        Cargo cargo = _cargo.First();        
+        cargo.gameObject.transform.SetParent(null);
+        cargo.gameObject.SetActive(true);
+        cargo.transform.position = dropPoint.position - new Vector3(0, cargo.GetBounds().extents.y, 0);
+        _cargo.RemoveAt(0);
+    }
 }

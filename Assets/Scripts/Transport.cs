@@ -13,6 +13,7 @@ public class Transport : Explodable {
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
+    public Transform cargoDropPoint;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
@@ -26,7 +27,8 @@ public class Transport : Explodable {
     float shutdownDuration = 5f;
     float currentShutdownTime;
     int currentStatus; //0 = green, 1 = red
-        
+    bool cargoDropSafe;
+
     // Use this for initialization
     void Start()
     {
@@ -68,6 +70,11 @@ public class Transport : Explodable {
             
             if (hit.collider != null)
             {
+                if (cargoHold.Peek() != null)
+                {
+                    cargoDropSafe = (hit.distance * .75f > cargoHold.Peek().GetBounds().size.y);
+                }
+
                 bool landing = hit.collider.GetComponent<Pad>() != null;
                 foreach (GameObject light in landingLights)
                 {
@@ -75,6 +82,8 @@ public class Transport : Explodable {
                 }
             } else
             {
+                cargoDropSafe = true;
+
                 foreach (GameObject light in landingLights)
                 {
                     light.SetActive(false);
@@ -83,9 +92,13 @@ public class Transport : Explodable {
             
             if (Input.GetButtonDown("RightBumper"))
             {
-                if (!winch.gameObject.activeInHierarchy)
+                if (hit.collider != null)
                 {
-                    if (hit.collider != null)
+                    Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
+                    if (cargo != null)
+                    {
+                        StoreCargo(cargo);
+                    } else if (!winch.gameObject.activeInHierarchy)
                     {
                         WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
                         if (winchPoint != null)
@@ -94,20 +107,20 @@ public class Transport : Explodable {
                             {
                                 winch.gameObject.SetActive(true);
                                 winch.Connect(winchPoint);
-
-                                Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
-                                if (cargo != null)
-                                {
-                                    StoreCargo(cargo);
-                                }
                             }
                         }
                     }
+                    else
+                    {
+                        winch.gameObject.SetActive(false);
+                        winch.hook.Disconnect();
+                    }
                 }
-                else
+            } else if (Input.GetButtonDown("LeftBumper"))
+            {
+                if (cargoDropSafe)
                 {
-                    winch.gameObject.SetActive(false);
-                    winch.hook.Disconnect();
+                    cargoHold.Drop(cargoDropPoint);
                 }
             }
 
