@@ -13,6 +13,7 @@ public class Transport : Explodable {
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
+    public Scanner scanner;
     public Transform cargoDropPoint;
     public float maxIntegrity;
     public float currentIntegrity;
@@ -122,6 +123,11 @@ public class Transport : Explodable {
                 {
                     cargoHold.Drop(cargoDropPoint);
                 }
+            }
+
+            if (Input.GetAxis("RightTrigger") > 0 && !scanner.isScanning)
+            {
+                scanner.Scan();
             }
 
             if (Input.GetButtonDown("R3"))
