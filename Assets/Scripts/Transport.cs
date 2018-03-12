@@ -91,7 +91,7 @@ public class Transport : Explodable {
                 }
             }
             
-            if (Input.GetButtonDown("RightBumper"))
+            if (Input.GetAxis("RightTrigger") > 0)
             {
                 if (hit.collider != null)
                 {
@@ -117,7 +117,7 @@ public class Transport : Explodable {
                         winch.hook.Disconnect();
                     }
                 }
-            } else if (Input.GetButtonDown("LeftBumper"))
+            } else if (Input.GetAxis("LeftTrigger") > 0)
             {
                 if (cargoDropSafe)
                 {
@@ -125,7 +125,7 @@ public class Transport : Explodable {
                 }
             }
 
-            if (Input.GetAxis("RightTrigger") > 0 && !scanner.isScanning)
+            if (Input.GetButtonDown("RightBumper") && !scanner.isScanning)
             {
                 scanner.Scan();
             }
@@ -142,7 +142,6 @@ public class Transport : Explodable {
         if (this.cargoHold.Store(cargo))
         {
             winch.gameObject.SetActive(false);
-            Debug.Log("Stored Cargo");
         }
     }
 

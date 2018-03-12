@@ -12,12 +12,17 @@ public class Scannable : MonoBehaviour {
     bool isScanning;
     bool isShowingScan;
     float currentScanTime = 0f;
-    Material actorOrigMaterial;
+    Material[] actorOrigMaterials;
 
     void Reset()
     {
         scanDuration = 5f;
         scanDelay = 1.5f;
+    }
+
+    void Start()
+    {
+        actorOrigMaterials = actor.GetComponent<Renderer>().materials;
     }
 
     void Update()
@@ -45,14 +50,22 @@ public class Scannable : MonoBehaviour {
     {
         isScanning = false;
         isShowingScan = false;
-        actor.material = actorOrigMaterial;
-        actorOrigMaterial = null;
+        Material[] materials = actor.materials;
+        for (int x = 0; x < materials.Length; x++)
+        {
+            materials[x] = actorOrigMaterials[x];
+        }
+        actor.materials = materials;
     }
 
     void ShowScanningMaterial()
     {
         isShowingScan = true;
-        actorOrigMaterial = actor.material;
-        actor.material = scanActiveMaterial;
+        Material[] materials = actor.materials;
+        for (int x=0; x<materials.Length; x++)
+        {
+            materials[x] = scanActiveMaterial;
+        }
+        actor.materials = materials;
     }
 }
