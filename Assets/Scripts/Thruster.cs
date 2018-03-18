@@ -8,6 +8,7 @@ public class Thruster : MonoBehaviour {
     public float thrustValue;
     public ParticleSystem engine;
     public ParticleSystem trail;
+    public AudioSource thrusterAudio;
     public Rigidbody forceBody;
     public FuelTank fuelTank;
 
@@ -41,6 +42,8 @@ public class Thruster : MonoBehaviour {
         trailMain.startSize = trailSizeMax * thrustValue;
         trailMain.startSpeed = trailSpeedMax * thrustValue;
         trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
+        thrusterAudio.pitch = thrustValue;
+        thrusterAudio.volume = thrustValue;
     }
 
     void FixedUpdate()
