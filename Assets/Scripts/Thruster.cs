@@ -12,21 +12,25 @@ public class Thruster : MonoBehaviour {
     public FuelTank fuelTank;
 
     ParticleSystem.MainModule engineMain;
-    ParticleSystem.MainModule trailMain;    
+    ParticleSystem.MainModule trailMain;
+    ParticleSystem.EmissionModule trailEmission;  
     float engineSizeMax;
     float engineSpeedMax;
     float trailSizeMax;
     float trailSpeedMax;
+    float trailEmissionRateMax;
 
     // Use this for initialization
     void Start () {
         engineMain = engine.main;
         trailMain = trail.main;
+        trailEmission = trail.emission;
 
         engineSizeMax = engineMain.startSize.constant;
         engineSpeedMax = engineMain.startSpeed.constant;
         trailSizeMax = trailMain.startSize.constant;
         trailSpeedMax = trailMain.startSpeed.constant;
+        trailEmissionRateMax = trail.emission.rateOverTime.constant;
     }
 	
 	// Update is called once per frame
@@ -36,6 +40,7 @@ public class Thruster : MonoBehaviour {
         engineMain.startSpeed = engineSpeedMax * thrustValue;
         trailMain.startSize = trailSizeMax * thrustValue;
         trailMain.startSpeed = trailSpeedMax * thrustValue;
+        trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
     }
 
     void FixedUpdate()

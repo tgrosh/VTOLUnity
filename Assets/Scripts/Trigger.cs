@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : Triggereble {
-    public Triggereble target;
+public class Trigger : Triggerable {
+    public Triggerable target;
     public bool transportTriggerOnly = true;
 
     GameObject lastColliderRoot;

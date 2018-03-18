@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SparkBarrier : Triggereble {
+public class SparkBarrier : Triggerable {
     public bool isActive = true;
 
     Sparker[] sparkers;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Triggereble: MonoBehaviour
+public abstract class Triggerable: MonoBehaviour
 {
     public abstract void OnTrigger(Trigger trigger);
 }

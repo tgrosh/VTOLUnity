@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EMP : Triggereble {
+public class EMP : Triggerable {
     public ParticleSystem pulser;
     public float radius = 5f;
 

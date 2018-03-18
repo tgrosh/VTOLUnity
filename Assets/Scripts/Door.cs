@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Triggereble {
+public class Door : Triggerable {
     Animator anim;
 
     // Use this for initialization
