@@ -15,6 +15,10 @@ public class Transport : Explodable {
     public GameObject[] landingLights;
     public Scanner scanner;
     public Transform cargoDropPoint;
+    public ParticleSystem impactParticles;
+    public GameObject impactDecal;
+    public TransportDamageModel damageModel;
+    public AudioSource impactAudio;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
@@ -29,6 +33,12 @@ public class Transport : Explodable {
     float currentShutdownTime;
     int currentStatus; //0 = green, 1 = red
     bool cargoDropSafe;
+    float impactIntegrityFactor = .25f; // percentage of maxIntegrity. .25 = 25% of max integrity is considered a full impact
+    float thrusterMaxPercent = 1f;
+    bool throttleErratic = false;
+    float thrusterOffCurrent = 0f;
+    float thrusterOffChance = .75f;
+    float thrusterOffDuration = .075f;
 
     // Use this for initialization
     void Start()
@@ -154,7 +164,7 @@ public class Transport : Explodable {
     void FixedUpdate()
     {
         if (exploded) return;
-                
+
         if (body.velocity.z < -.05)
         {
             Quaternion actorRotation = Quaternion.Lerp(actor.transform.localRotation, Quaternion.Euler(new Vector3(0, 0f, 0)), Time.fixedDeltaTime * rotationSpeed);
@@ -168,7 +178,7 @@ public class Transport : Explodable {
 
         Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
-
+        
         float throttle = Input.GetAxis("Vertical");
         if (!thrustersEnabled)
         {
@@ -178,7 +188,34 @@ public class Transport : Explodable {
         {
             foreach (Thruster t in thrusters)
             {
-                t.thrustValue = throttle;
+                t.thrustValue = throttle * thrusterMaxPercent;
+            }
+        }
+        
+        ProcessThrottleErratic();
+    }
+
+    private void ProcessThrottleErratic()
+    {
+        if (throttleErratic)
+        {
+            if (thrustersEnabled == true)
+            {
+                float rand = UnityEngine.Random.value;
+                if (rand < thrusterOffChance * Time.deltaTime)
+                {
+                    //turn off the thruster
+                    thrustersEnabled = false;
+                }
+            }
+            else
+            {
+                thrusterOffCurrent += Time.deltaTime;
+                if (thrusterOffCurrent > thrusterOffDuration)
+                {
+                    thrustersEnabled = true;
+                    thrusterOffCurrent = 0f;
+                }
             }
         }
     }
@@ -191,6 +228,28 @@ public class Transport : Explodable {
         if (impactForce > impactDamageThreshold)
         {
             currentIntegrity -= impactForce - impactDamageThreshold;
+
+            impactParticles.transform.position = collision.contacts[0].point;
+            float impactFactor = impactForce / (maxIntegrity * impactIntegrityFactor);
+            impactParticles.emission.SetBurst(0, new ParticleSystem.Burst(0, 40 * impactFactor));
+            ParticleSystem.MainModule impactMain = impactParticles.transform.Find("Dust").GetComponent<ParticleSystem>().main;
+            impactMain.startSize = 3 * impactFactor;
+            impactParticles.Play(true);
+            impactAudio.Play();
+
+            Instantiate(impactDecal, collision.contacts[0].point, Quaternion.FromToRotation(Vector3.up, collision.contacts[0].normal), null);
+
+            if (currentIntegrity / maxIntegrity < .25f)
+            {
+                throttleErratic = true;
+            }
+
+            if (currentIntegrity / maxIntegrity < .5f)
+            {
+                damageModel.ShowDamageModel50();
+                thrusterMaxPercent = .8f;
+            }
+
             Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
 
             if (currentIntegrity <= 0)
