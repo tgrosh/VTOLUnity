@@ -3,14 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Switch : MonoBehaviour {
+    public Switchable target;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    bool persistentOn;
+    GameObject origin;
+
+    public void On(GameObject origin, bool persistent)
+    {
+        target.On(origin);
+        persistentOn = persistent;
+        this.origin = origin;
+    }
+
+    public void Off(GameObject origin)
+    {
+        target.Off(origin);
+        persistentOn = false;
+    }
+
+    void Update()
+    {
+        if (persistentOn)
+        {
+            target.On(origin);
+        }
+    }
 }
