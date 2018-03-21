@@ -73,12 +73,12 @@ public class TriggerArea : Switchable {
         }
     }
     
-    public override void On(Switch origin)
+    public override void On(GameObject origin)
     {
         areaActive = true;
     }
 
-    public override void Off(Switch origin)
+    public override void Off(GameObject origin)
     {
         areaActive = false;
     }

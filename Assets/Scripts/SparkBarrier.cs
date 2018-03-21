@@ -21,7 +21,7 @@ public class SparkBarrier : Switchable {
         }
     }
     
-    public override void On(Switch origin)
+    public override void On(GameObject origin)
     {
         foreach (Sparker sparker in sparkers)
         {
@@ -30,7 +30,7 @@ public class SparkBarrier : Switchable {
         }
     }
 
-    public override void Off(Switch origin)
+    public override void Off(GameObject origin)
     {
         foreach (Sparker sparker in sparkers)
         {
