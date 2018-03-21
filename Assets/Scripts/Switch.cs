@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour {
+public class Switch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

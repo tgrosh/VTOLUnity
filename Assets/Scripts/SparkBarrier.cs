@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SparkBarrier : Triggerable {
-    public bool isActive = true;
-
+public class SparkBarrier : Switchable {
     Sparker[] sparkers;
 
     // Use this for initialization
@@ -13,11 +11,6 @@ public class SparkBarrier : Triggerable {
         sparkers = transform.GetComponentsInChildren<Sparker>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     void OnTriggerEnter(Collider collider)
     {
         Transport transport = collider.transform.root.GetComponent<Transport>();
@@ -27,14 +20,22 @@ public class SparkBarrier : Triggerable {
             transport.Explode();
         }
     }
-
-    public override void OnTrigger(Trigger trigger)
+    
+    public override void On(Switch origin)
     {
-        isActive = !isActive;
         foreach (Sparker sparker in sparkers)
         {
-            sparker.lightningBolt.SetActive(isActive);
-            sparker.trigger.enabled = isActive;
+            sparker.lightningBolt.SetActive(true);
+            sparker.trigger.enabled = true;
+        }
+    }
+
+    public override void Off(Switch origin)
+    {
+        foreach (Sparker sparker in sparkers)
+        {
+            sparker.lightningBolt.SetActive(false);
+            sparker.trigger.enabled = false;
         }
     }
 }

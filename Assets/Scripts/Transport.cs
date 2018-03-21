@@ -101,7 +101,7 @@ public class Transport : Explodable {
                 }
             }
             
-            if (Input.GetAxis("RightTrigger") > 0)
+            if (Input.GetButtonDown("RightBumper")) // Input.GetAxis("RightTrigger") > 0)
             {
                 if (hit.collider != null)
                 {

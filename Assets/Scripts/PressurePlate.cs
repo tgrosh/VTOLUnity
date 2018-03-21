@@ -5,37 +5,53 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour {
     public float triggerWeight;
     public Triggerable target;
-    public float debounceThreashold;
-
+    
+    List<GameObject> currentRoots = new List<GameObject>();
+    float currentMass;
     bool triggered;
-    float lastCollisionTime;
-    int collisionCount;
 
     void Reset () {
-        triggerWeight = 75f;
-        debounceThreashold = 1f;
+        triggerWeight = 75f;        
 	}
 
+    void Noah()
+    {
+
+    }
+    
     void OnCollisionEnter (Collision collision)
     {
-        collisionCount++;
-        Debug.Log("Collision Detected (" + collisionCount + ") :" + (Time.realtimeSinceStartup - lastCollisionTime));
-        if (!triggered && Time.realtimeSinceStartup - lastCollisionTime > debounceThreashold)
+        GameObject colliderRoot = collision.collider.transform.root.gameObject;
+
+        if (currentRoots.Contains(colliderRoot))
         {
-            Debug.Log("Not Triggered");
-            if (collision.collider.transform.root.GetComponent<Rigidbody>().mass > triggerWeight)
-            {
-                Debug.Log("Triggering");
-                triggered = true;
-                target.OnTrigger(null);
-            }
+            return;
         }
-        lastCollisionTime = Time.realtimeSinceStartup;
+        
+        currentRoots.Add(colliderRoot);
+        currentMass += colliderRoot.GetComponent<Rigidbody>().mass;
+
+        if (!triggered & currentMass > triggerWeight)
+        {
+            target.OnTrigger(null);
+            triggered = true;
+        }        
     }
-    void OnCollisionExit()
+
+    void OnCollisionExit(Collision collision)
     {
-        collisionCount--;
-        triggered = collisionCount != 0;
-        Debug.Log("Collision Left (" + collisionCount + ")");
+        GameObject colliderRoot = collision.collider.transform.root.gameObject;
+
+        if (currentRoots.Contains(colliderRoot))
+        {
+            currentRoots.Remove(colliderRoot);
+            currentMass -= colliderRoot.GetComponent<Rigidbody>().mass;
+            
+            if (triggered && currentMass < triggerWeight)
+            {
+                target.OnTrigger(null);
+                triggered = false;
+            }
+        }        
     }
 }
