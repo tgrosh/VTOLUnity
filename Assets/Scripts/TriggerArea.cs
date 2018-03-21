@@ -3,16 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerArea : Triggerable {
-    public Triggerable target;
+public class TriggerArea : Switchable {
     public bool transportTriggerOnly = true;
 
     GameObject lastColliderRoot;
     Dictionary<Collider, GameObject> colliderDictionary = new Dictionary<Collider, GameObject>();
-    bool triggerIsActive = true;
-    	
-	// Update is called once per frame
-	void Update () {
+    bool areaActive = true;
+    Color gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().bounds.size);
+    }
+
+    void Reset()
+    {
+        gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
+    }
+    
+    // Update is called once per frame
+    void Update () {
         List<Collider> collidersToRemove = new List<Collider>();
                
 		foreach (Collider collider in colliderDictionary.Keys)
@@ -31,7 +42,7 @@ public class TriggerArea : Triggerable {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!triggerIsActive) return;
+        if (!areaActive) return;
 
         GameObject colliderRoot = collider.transform.root.gameObject;
 
@@ -42,6 +53,7 @@ public class TriggerArea : Triggerable {
         
         if (lastColliderRoot != colliderRoot) //new root
         {
+            GetComponent<Trigger>().OnTrigger(gameObject);
         }
         lastColliderRoot = colliderRoot; //this root is now the last root
 
@@ -50,7 +62,7 @@ public class TriggerArea : Triggerable {
     
     void OnTriggerExit(Collider collider)
     {
-        if (!triggerIsActive) return;
+        if (!areaActive) return;
 
         GameObject colliderRoot = collider.transform.root.gameObject;
         colliderDictionary.Remove(collider);
@@ -60,8 +72,14 @@ public class TriggerArea : Triggerable {
             lastColliderRoot = null;
         }
     }
-
+    
+    public override void On(Switch origin)
     {
-        triggerIsActive = !triggerIsActive;
+        areaActive = true;
+    }
+
+    public override void Off(Switch origin)
+    {
+        areaActive = false;
     }
 }

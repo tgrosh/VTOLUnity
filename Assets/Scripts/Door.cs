@@ -17,7 +17,7 @@ public class Door : Triggerable {
 		
 	}
 
-    public override void OnTrigger(Trigger trigger)
+    public override void OnTrigger(GameObject trigger)
     {
         anim.SetBool("isOpen", !anim.GetBool("isOpen"));
     }

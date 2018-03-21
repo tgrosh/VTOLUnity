@@ -10,7 +10,7 @@ public class EMP : Triggerable {
     bool triggered;
     bool pulsing;
 
-    public override void OnTrigger(Trigger trigger)
+    public override void OnTrigger(GameObject trigger)
     {
         if (!triggered)
         {

@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trigger : MonoBehaviour {
+    public Triggerable target;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void OnTrigger(GameObject source)
+    {
+        target.OnTrigger(source);
+    }
 }
