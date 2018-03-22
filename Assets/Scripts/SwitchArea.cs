@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerArea : Switchable {
+public class SwitchArea : Switchable {
     public bool transportOnly = true;
+    public bool persistent = false;
 
     List<GameObject> currentRoots = new List<GameObject>();
     bool areaActive = true;
-    Color gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
-
+    Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
+    
     void OnDrawGizmos()
     {
         Gizmos.color = gizmoColor;
@@ -18,7 +19,8 @@ public class TriggerArea : Switchable {
 
     void Reset()
     {
-        gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
+        gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
+        persistent = false;
         transportOnly = true;
     }
     
@@ -39,9 +41,9 @@ public class TriggerArea : Switchable {
         }
 
         currentRoots.Add(colliderRoot);
-        GetComponent<Trigger>().OnTrigger(gameObject);
+        GetComponent<Switch>().On(gameObject, persistent);
     }
-    
+
     void OnTriggerExit(Collider collider)
     {
         if (!areaActive) return;
@@ -50,9 +52,10 @@ public class TriggerArea : Switchable {
         if (currentRoots.Contains(colliderRoot))
         {
             currentRoots.Remove(colliderRoot);
-        }
+            GetComponent<Switch>().Off(gameObject);
+        }        
     }
-    
+
     public override void On(GameObject origin)
     {
         areaActive = true;
