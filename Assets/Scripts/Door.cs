@@ -3,22 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : Triggerable {
+public class Door : Switchable {
     Animator anim;
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public override void OnTrigger(GameObject trigger)
+    public override void On(GameObject origin)
     {
-        anim.SetBool("isOpen", !anim.GetBool("isOpen"));
+        anim.SetBool("isOpen", true);
+    }
+
+    public override void Off(GameObject origin)
+    {
+        anim.SetBool("isOpen", false);
     }
 }

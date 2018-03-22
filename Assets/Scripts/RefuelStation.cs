@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class RefuelStation : MonoBehaviour {
     public float fuelPerSecond;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
+        
     void OnTriggerStay(Collider collider)
     {
         FuelTank tank = collider.gameObject.transform.root.GetComponent<FuelTank>();
