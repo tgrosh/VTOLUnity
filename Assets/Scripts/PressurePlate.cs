@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
     public float triggerWeight;
-    public Triggerable target;
     
     List<GameObject> currentRoots = new List<GameObject>();
     float currentMass;
@@ -13,12 +12,7 @@ public class PressurePlate : MonoBehaviour {
     void Reset () {
         triggerWeight = 75f;        
 	}
-
-    void Noah()
-    {
-
-    }
-    
+        
     void OnCollisionEnter (Collision collision)
     {
         GameObject colliderRoot = collision.collider.transform.root.gameObject;
@@ -33,7 +27,7 @@ public class PressurePlate : MonoBehaviour {
 
         if (!triggered & currentMass > triggerWeight)
         {
-            target.OnTrigger(null);
+            GetComponent<Switch>().On(gameObject, true);
             triggered = true;
         }        
     }
@@ -49,7 +43,7 @@ public class PressurePlate : MonoBehaviour {
             
             if (triggered && currentMass < triggerWeight)
             {
-                target.OnTrigger(null);
+                GetComponent<Switch>().Off(gameObject);
                 triggered = false;
             }
         }        
