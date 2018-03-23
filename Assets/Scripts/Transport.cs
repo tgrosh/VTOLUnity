@@ -7,7 +7,6 @@ using UnityStandardAssets.Utility;
 public class Transport : Explodable {
     public Rigidbody body;
     public GameObject actor;
-    public Winch winch;
     public Thruster[] thrusters;
     public CargoHold cargoHold;
     public GameObject spotLight;
@@ -24,9 +23,8 @@ public class Transport : Explodable {
     public float impactDamageThreshold;
     public float maxRotation;
     public float rotationSpeed;
-    public float winchProximityMax;
-    public float winchProximityMin;
     public bool thrustersEnabled = true;
+    public float cargoPickupMax;
 
     bool inShutdown;
     float shutdownDuration = 5f;
@@ -39,6 +37,14 @@ public class Transport : Explodable {
     float thrusterOffCurrent = 0f;
     float thrusterOffChance = .75f;
     float thrusterOffDuration = .075f;
+
+    void Reset()
+    {
+        maxRotation = 20;
+        rotationSpeed = 10;
+        impactDamageThreshold = 150;
+        cargoPickupMax = .5f;
+    }
 
     // Use this for initialization
     void Start()
@@ -77,7 +83,7 @@ public class Transport : Explodable {
         } else
         {
             RaycastHit hit;
-            Physics.Raycast(winch.transform.position, Vector3.down, out hit, winchProximityMax);
+            Physics.Raycast(cargoDropPoint.transform.position, Vector3.down, out hit);
             
             if (hit.collider != null)
             {
@@ -91,6 +97,15 @@ public class Transport : Explodable {
                 {
                     light.SetActive(landing);
                 }
+
+                if (Input.GetAxis("RightTrigger") > 0 && hit.distance < cargoPickupMax)
+                {  
+                    Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
+                    if (cargo != null)
+                    {
+                        StoreCargo(cargo);
+                    }           
+                }                
             } else
             {
                 cargoDropSafe = true;
@@ -99,35 +114,9 @@ public class Transport : Explodable {
                 {
                     light.SetActive(false);
                 }
-            }
-            
-            if (Input.GetButtonDown("RightBumper")) // Input.GetAxis("RightTrigger") > 0)
-            {
-                if (hit.collider != null)
-                {
-                    Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
-                    if (cargo != null)
-                    {
-                        StoreCargo(cargo);
-                    } else if (!winch.gameObject.activeInHierarchy)
-                    {
-                        WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
-                        if (winchPoint != null)
-                        {
-                            if (hit.distance > winchProximityMin)
-                            {
-                                winch.gameObject.SetActive(true);
-                                winch.Connect(winchPoint);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        winch.gameObject.SetActive(false);
-                        winch.hook.Disconnect();
-                    }
-                }
-            } else if (Input.GetAxis("LeftTrigger") > 0)
+            }            
+
+            if (Input.GetAxis("LeftTrigger") > 0)
             {
                 if (cargoDropSafe)
                 {
@@ -149,10 +138,7 @@ public class Transport : Explodable {
 
     private void StoreCargo(Cargo cargo)
     {
-        if (this.cargoHold.Store(cargo))
-        {
-            winch.gameObject.SetActive(false);
-        }
+        cargoHold.Store(cargo);
     }
 
     public void Shutdown()

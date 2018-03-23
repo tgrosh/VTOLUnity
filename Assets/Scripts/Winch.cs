@@ -5,26 +5,64 @@ using UnityEngine;
 
 public class Winch : MonoBehaviour {
     public WinchHook hook;
+    public GameObject[] links;
+    public float winchProximityMax;
+    public float winchProximityMin;
 
-	// Use this for initialization
-	void Start () {
-        AsyncRetract retract = new AsyncRetract(this.Retract);
+    bool winchActive;
+    bool triggerPulled;
+
+    // Use this for initialization
+    void Start () {
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (!triggerPulled && !winchActive && Input.GetAxis("RightTrigger") > 0)
+        {
+            triggerPulled = true;
+
+            RaycastHit hit;
+            Physics.Raycast(transform.position, Vector3.down, out hit, winchProximityMax);
+
+            if (hit.collider != null)
+            {
+                WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
+                if (winchPoint != null)
+                {
+                    if (hit.distance > winchProximityMin)
+                    {
+                        winchActive = true;
+                        Connect(winchPoint);
+                    }
+                }                
+            }
+        } else if (Input.GetAxis("RightTrigger") <= 0)
+        {
+            triggerPulled = false;
+            winchActive = false;
+            Disconnect();
+        }
+    }
 
     public void Connect(WinchPoint winchPoint)
     {
+        foreach (GameObject o in links)
+        {
+            o.SetActive(true);
+        }
+        hook.gameObject.SetActive(true);
         hook.Connect(winchPoint);
     }
 
-    public delegate void AsyncRetract();
-
-    public void Retract()
+    public void Disconnect()
     {
-
+        foreach (GameObject o in links)
+        {
+            o.SetActive(false);
+        }
+        hook.gameObject.SetActive(false);
+        hook.Disconnect();
     }
 }

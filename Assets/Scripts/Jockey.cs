@@ -43,6 +43,5 @@ public class Jockey : MonoBehaviour {
             c.enabled = true;
         }
         GetComponentInChildren<Animator>().enabled = false;
-        Debug.Break();
     }
 }
