@@ -287,8 +287,13 @@ public class Transport : Explodable {
             Transform hauler = transform.Find("Hauler");
             foreach (Transform child in hauler)
             {
-                child.gameObject.AddComponent<Rigidbody>();
+                if (child.gameObject.layer != 8) //Jockey layer
+                {
+                    child.gameObject.AddComponent<Rigidbody>();
+                }
             }
+
+            GetComponentInChildren<Jockey>().Die();
 
             base.Explode();
         }
