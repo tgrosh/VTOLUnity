@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TransportDamageModel : MonoBehaviour {
     public GameObject DamageModel50;
+    public ParticleSystem damageSparks;
+    public ParticleSystem[] cutoffParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -18,5 +20,18 @@ public class TransportDamageModel : MonoBehaviour {
     public void ShowDamageModel50()
     {
         DamageModel50.SetActive(true);
+    }
+
+    public void ShowDamageSparks()
+    {
+        damageSparks.Play();
+    }
+
+    public void EngineCutoff()
+    {
+        foreach (ParticleSystem cutoff in cutoffParticles)
+        {
+            cutoff.Play();
+        }
     }
 }

@@ -191,7 +191,8 @@ public class Transport : Explodable {
                 if (rand < thrusterOffChance * Time.deltaTime)
                 {
                     //turn off the thruster
-                    thrustersEnabled = false;
+                    thrustersEnabled = false;                    
+                    damageModel.EngineCutoff();
                 }
             }
             else
@@ -230,10 +231,15 @@ public class Transport : Explodable {
                 throttleErratic = true;
             }
 
-            if (currentIntegrity / maxIntegrity < .5f)
+            if (currentIntegrity / maxIntegrity < .4f)
+            {
+                thrusterMaxPercent = .8f;
+                damageModel.ShowDamageSparks();
+            }
+
+            if (currentIntegrity / maxIntegrity < .6f)
             {
                 damageModel.ShowDamageModel50();
-                thrusterMaxPercent = .8f;
             }
 
             Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
