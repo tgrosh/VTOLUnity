@@ -8,6 +8,8 @@ public class Winch : MonoBehaviour {
     public GameObject[] links;
     public float winchProximityMax;
     public float winchProximityMin;
+    public AudioSource attachAudio;
+    public AudioSource detachAudio;
 
     bool winchActive;
     bool triggerPulled;
@@ -38,7 +40,7 @@ public class Winch : MonoBehaviour {
                     }
                 }                
             }
-        } else if (Input.GetAxis("RightTrigger") <= 0)
+        } else if (winchActive && Input.GetAxis("RightTrigger") <= 0)
         {
             triggerPulled = false;
             winchActive = false;
@@ -54,15 +56,17 @@ public class Winch : MonoBehaviour {
         }
         hook.gameObject.SetActive(true);
         hook.Connect(winchPoint);
+        attachAudio.Play();
     }
 
     public void Disconnect()
     {
+        hook.Disconnect();
         foreach (GameObject o in links)
         {
             o.SetActive(false);
         }
         hook.gameObject.SetActive(false);
-        hook.Disconnect();
+        detachAudio.Play();
     }
 }
