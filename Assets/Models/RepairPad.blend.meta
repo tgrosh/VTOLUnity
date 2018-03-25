@@ -8,19 +8,37 @@ ModelImporter:
     100000: //RootNode
     100002: Cube
     100004: Cube_001
+    100006: Platform
+    100008: Shroud
+    100010: Crane
     400000: //RootNode
     400002: Cube
     400004: Cube_001
+    400006: Platform
+    400008: Shroud
+    400010: Crane
     2300000: //RootNode
     2300002: Cube
     2300004: Cube_001
+    2300006: Platform
+    2300008: Shroud
+    2300010: Crane
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
+    3300006: Platform
+    3300008: Shroud
+    3300010: Crane
     4300000: Cube
     4300002: Cube_001
+    4300004: Shroud
+    4300006: Platform
+    4300008: Crane
     6400000: Cube
     6400002: Cube_001
+    6400004: Platform
+    6400006: Shroud
+    6400008: Crane
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -29,6 +47,26 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 43734c766566a174f82ffaa498485863, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RepairPadCrane
+    second: {fileID: 2100000, guid: e6a4d31f597e73144a3d926e49ca617e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RepairPad_Base
+    second: {fileID: 2100000, guid: 8a5b08ae5f71e0f419c2745c5c969ed7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RepairPad_Glass
+    second: {fileID: 2100000, guid: e815dbe5b775d7e498c8a20bc0f87c95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RepairPad_Shroud
+    second: {fileID: 2100000, guid: 94f0a96fd77eeac498e3bf66a2232300, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
