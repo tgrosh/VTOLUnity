@@ -32,12 +32,7 @@ public class Transport : Explodable {
     int currentStatus; //0 = green, 1 = red
     bool cargoDropSafe;
     float impactIntegrityFactor = .25f; // percentage of maxIntegrity. .25 = 25% of max integrity is considered a full impact
-    float thrusterMaxPercent = 1f;
-    bool throttleErratic = false;
-    float thrusterOffCurrent = 0f;
-    float thrusterOffChance = .75f;
-    float thrusterOffDuration = .075f;
-
+    
     void Reset()
     {
         maxRotation = 20;
@@ -174,39 +169,11 @@ public class Transport : Explodable {
         {
             foreach (Thruster t in thrusters)
             {
-                t.thrustValue = throttle * thrusterMaxPercent;
+                t.thrustValue = throttle;
             }
-        }
-        
-        ProcessThrottleErratic();
+        }        
     }
-
-    private void ProcessThrottleErratic()
-    {
-        if (throttleErratic)
-        {
-            if (thrustersEnabled == true)
-            {
-                float rand = UnityEngine.Random.value;
-                if (rand < thrusterOffChance * Time.deltaTime)
-                {
-                    //turn off the thruster
-                    thrustersEnabled = false;                    
-                    damageModel.EngineCutoff();
-                }
-            }
-            else
-            {
-                thrusterOffCurrent += Time.deltaTime;
-                if (thrusterOffCurrent > thrusterOffDuration)
-                {
-                    thrustersEnabled = true;
-                    thrusterOffCurrent = 0f;
-                }
-            }
-        }
-    }
-
+    
     void OnCollisionEnter(Collision collision)
     {
         if (exploded) return;
@@ -215,40 +182,30 @@ public class Transport : Explodable {
         if (impactForce > impactDamageThreshold)
         {
             currentIntegrity -= impactForce - impactDamageThreshold;
-
-            impactParticles.transform.position = collision.contacts[0].point;
-            float impactFactor = impactForce / (maxIntegrity * impactIntegrityFactor);
-            impactParticles.emission.SetBurst(0, new ParticleSystem.Burst(0, 40 * impactFactor));
-            ParticleSystem.MainModule impactMain = impactParticles.transform.Find("Dust").GetComponent<ParticleSystem>().main;
-            impactMain.startSize = 3 * impactFactor;
-            impactParticles.Play(true);
-            impactAudio.Play();
-
-            Instantiate(impactDecal, collision.contacts[0].point, Quaternion.FromToRotation(Vector3.up, collision.contacts[0].normal), null);
-
-            if (currentIntegrity / maxIntegrity < .25f)
-            {
-                throttleErratic = true;
-            }
-
-            if (currentIntegrity / maxIntegrity < .4f)
-            {
-                thrusterMaxPercent = .8f;
-                damageModel.ShowDamageSparks();
-            }
-
-            if (currentIntegrity / maxIntegrity < .6f)
-            {
-                damageModel.ShowDamageModel50();
-            }
-
             Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
+
+            damageModel.ProcessDamage();
+
+            PlayImpact(collision, impactForce);
 
             if (currentIntegrity <= 0)
             {
                 Explode();
             }
         }
+    }
+
+    private void PlayImpact(Collision collision, float impactForce)
+    {
+        impactParticles.transform.position = collision.contacts[0].point;
+        float impactFactor = impactForce / (maxIntegrity * impactIntegrityFactor);
+        impactParticles.emission.SetBurst(0, new ParticleSystem.Burst(0, 40 * impactFactor));
+        ParticleSystem.MainModule impactMain = impactParticles.transform.Find("Dust").GetComponent<ParticleSystem>().main;
+        impactMain.startSize = 3 * impactFactor;
+        impactParticles.Play(true);
+        impactAudio.Play();
+
+        Instantiate(impactDecal, collision.contacts[0].point, Quaternion.FromToRotation(Vector3.up, collision.contacts[0].normal), null);
     }
 
     void OnParticleCollision(GameObject go)
