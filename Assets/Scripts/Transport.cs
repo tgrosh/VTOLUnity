@@ -25,6 +25,7 @@ public class Transport : Explodable {
     public float rotationSpeed;
     public bool thrustersEnabled = true;
     public float cargoPickupMax;
+    public float throttle;
 
     bool inShutdown;
     float shutdownDuration = 5f;
@@ -160,7 +161,7 @@ public class Transport : Explodable {
         Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
         
-        float throttle = Input.GetAxis("Vertical");
+        throttle = Input.GetAxis("Vertical");
         if (!thrustersEnabled)
         {
             throttle = 0;
