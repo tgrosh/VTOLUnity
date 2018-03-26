@@ -5,7 +5,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour {
     public float triggerWeight;
     
-    List<GameObject> currentRoots = new List<GameObject>();
+    List<Rigidbody> currentRoots = new List<Rigidbody>();
     float currentMass;
     bool triggered;
 
@@ -15,15 +15,20 @@ public class PressurePlate : MonoBehaviour {
         
     void OnCollisionEnter (Collision collision)
     {
-        GameObject colliderRoot = collision.collider.transform.root.gameObject;
+        Rigidbody rootRigidBody = collision.collider.gameObject.GetComponentInParent<Rigidbody>();
 
-        if (currentRoots.Contains(colliderRoot))
+        if (rootRigidBody == null)
+        {
+            return;
+        }
+
+        if (currentRoots.Contains(rootRigidBody))
         {
             return;
         }
         
-        currentRoots.Add(colliderRoot);
-        currentMass += colliderRoot.GetComponent<Rigidbody>().mass;
+        currentRoots.Add(rootRigidBody);
+        currentMass += rootRigidBody.mass;
 
         if (!triggered & currentMass > triggerWeight)
         {
@@ -34,12 +39,17 @@ public class PressurePlate : MonoBehaviour {
 
     void OnCollisionExit(Collision collision)
     {
-        GameObject colliderRoot = collision.collider.transform.root.gameObject;
+        Rigidbody rootRigidBody = collision.collider.gameObject.GetComponentInParent<Rigidbody>();
 
-        if (currentRoots.Contains(colliderRoot))
+        if (rootRigidBody == null)
         {
-            currentRoots.Remove(colliderRoot);
-            currentMass -= colliderRoot.GetComponent<Rigidbody>().mass;
+            return;
+        }
+
+        if (currentRoots.Contains(rootRigidBody))
+        {
+            currentRoots.Remove(rootRigidBody);
+            currentMass -= rootRigidBody.mass;
             
             if (triggered && currentMass < triggerWeight)
             {

@@ -15,7 +15,7 @@ public class NoFlyZone : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        Transport transport = collider.transform.root.GetComponent<Transport>();
+        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
         if (transport != null)
         {
             transport.thrustersEnabled = false;
@@ -24,7 +24,7 @@ public class NoFlyZone : MonoBehaviour {
 
     void OnTriggerExit(Collider collider)
     {
-        Transport transport = collider.transform.root.GetComponent<Transport>();
+        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
         if (transport != null)
         {
             transport.thrustersEnabled = true;

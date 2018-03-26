@@ -34,7 +34,7 @@ public class Scanner : MonoBehaviour {
         
         foreach (Collider coll in hitColliders)
         {
-            Scannable scannable = coll.transform.root.GetComponent<Scannable>();
+            Scannable scannable = coll.gameObject.GetComponentInParent<Scannable>();
             if (scannable != null)
             {
                 scannable.ShowScan();

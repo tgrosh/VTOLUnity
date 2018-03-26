@@ -7,7 +7,7 @@ public class SwitchArea : Switchable {
     public bool transportOnly = true;
     public bool persistent = false;
 
-    List<GameObject> currentRoots = new List<GameObject>();
+    List<Rigidbody> currentRoots = new List<Rigidbody>();
     bool areaActive = true;
     Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
     
@@ -28,19 +28,24 @@ public class SwitchArea : Switchable {
     {
         if (!areaActive) return;
 
-        GameObject colliderRoot = collider.transform.root.gameObject;
+        Rigidbody rootRigidBody = collider.gameObject.GetComponentInParent<Rigidbody>();
 
-        if (currentRoots.Contains(colliderRoot))
+        if (rootRigidBody == null)
         {
             return;
         }
 
-        if (transportOnly && colliderRoot.GetComponent<Transport>() == null)
+        if (currentRoots.Contains(rootRigidBody))
         {
             return;
         }
 
-        currentRoots.Add(colliderRoot);
+        if (transportOnly && rootRigidBody.GetComponent<Transport>() == null)
+        {
+            return;
+        }
+
+        currentRoots.Add(rootRigidBody);
         GetComponent<Switch>().On(gameObject, persistent);
     }
 
@@ -48,10 +53,16 @@ public class SwitchArea : Switchable {
     {
         if (!areaActive) return;
 
-        GameObject colliderRoot = collider.transform.root.gameObject;
-        if (currentRoots.Contains(colliderRoot))
+        Rigidbody rootRigidBody = collider.gameObject.GetComponentInParent<Rigidbody>();
+
+        if (rootRigidBody == null)
         {
-            currentRoots.Remove(colliderRoot);
+            return;
+        }
+
+        if (currentRoots.Contains(rootRigidBody))
+        {
+            currentRoots.Remove(rootRigidBody);
             GetComponent<Switch>().Off(gameObject);
         }        
     }

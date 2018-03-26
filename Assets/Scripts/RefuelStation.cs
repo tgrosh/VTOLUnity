@@ -18,7 +18,7 @@ public class RefuelStation : MonoBehaviour {
     void OnTriggerStay(Collider collider)
     {
         Transport transport = collider.gameObject.GetComponentInParent<Transport>();
-        FuelTank tank = collider.gameObject.transform.root.GetComponent<FuelTank>();
+        FuelTank tank = collider.gameObject.GetComponentInParent<FuelTank>();
 
         if (tank != null && transport.throttle == 0)
         {
@@ -45,7 +45,7 @@ public class RefuelStation : MonoBehaviour {
     
     void OnTriggerExit(Collider collider)
     {
-        FuelTank tank = collider.gameObject.transform.root.GetComponent<FuelTank>();
+        FuelTank tank = collider.gameObject.GetComponentInParent<FuelTank>();
         if (tank != null)
         {
             if (isRefueling && !dingAudio.isPlaying)

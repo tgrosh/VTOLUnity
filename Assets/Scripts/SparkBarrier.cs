@@ -13,7 +13,7 @@ public class SparkBarrier : Switchable {
 	
     void OnTriggerEnter(Collider collider)
     {
-        Transport transport = collider.transform.root.GetComponent<Transport>();
+        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
 
         if (transport != null)
         {

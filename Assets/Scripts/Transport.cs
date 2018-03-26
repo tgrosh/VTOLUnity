@@ -96,7 +96,7 @@ public class Transport : Explodable {
 
                 if (Input.GetAxis("RightTrigger") > 0 && hit.distance < cargoPickupMax)
                 {  
-                    Cargo cargo = hit.collider.transform.root.GetComponent<Cargo>();
+                    Cargo cargo = hit.collider.gameObject.GetComponentInParent<Cargo>();
                     if (cargo != null)
                     {
                         StoreCargo(cargo);

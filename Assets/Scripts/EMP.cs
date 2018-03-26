@@ -43,7 +43,7 @@ public class EMP : Triggerable {
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
             foreach (Collider hit in colliders)
             {
-                Transport transport = hit.transform.root.GetComponent<Transport>();
+                Transport transport = hit.gameObject.GetComponentInParent<Transport>();
 
                 if (transport != null)
                 {
