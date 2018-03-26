@@ -87,6 +87,10 @@ public class Thruster : MonoBehaviour {
                     thrusterCutoutCurrent = 0f;
                 }
             }
+        } else
+        {
+            cutout = false;
+            thrusterCutoutCurrent = 0f;
         }
         
         if (!cutout && thrustValue > 0)

@@ -6,6 +6,7 @@ public class RepairStation : MonoBehaviour
 {
     public float repairPerSecond;
     public AudioSource repairAudio;
+    public AudioSource prepareAudio;
 
     Animator animator;
     bool isRepairing;
@@ -29,22 +30,31 @@ public class RepairStation : MonoBehaviour
     {
         Transport transport = collider.gameObject.GetComponentInParent<Transport>();
 
-        if (transport != null && transport.currentIntegrity < transport.maxIntegrity && transport.throttle == 0)
+        if (transport != null && transport.throttle == 0)
         {
             if (transport.currentIntegrity < transport.maxIntegrity)
             {
+                if (!isRepairing)
+                {
+                    prepareAudio.Play();
+                }
                 isRepairing = true;
-                //repair
-                //if (!repairAudio.isPlaying)
-                //{
-                //    repairAudio.Play();
-                //}
+                transport.currentIntegrity += repairPerSecond * Time.deltaTime;
+                if (transport.currentIntegrity > transport.maxIntegrity)
+                {
+                    transport.currentIntegrity = transport.maxIntegrity;
+                }
+                if (!repairAudio.isPlaying)
+                {
+                    repairAudio.Play();
+                }
             }
             else
             {
                 if (isRepairing)
                 {
-                    //repairAudio.Stop();
+                    repairAudio.Stop();
+                    prepareAudio.Play();
                 }
                 isRepairing = false;
             }
@@ -57,9 +67,13 @@ public class RepairStation : MonoBehaviour
         Transport transport = collider.gameObject.GetComponentInParent<Transport>();
         if (transport != null)
         {
+            if (isRepairing)
+            {
+                prepareAudio.Play();
+            }
             isRepairing = false;
             animator.SetBool("isRepairing", false);
-            //repairAudio.Stop();
+            repairAudio.Stop();
         }
     }
 }

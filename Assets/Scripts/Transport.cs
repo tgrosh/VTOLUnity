@@ -184,9 +184,7 @@ public class Transport : Explodable {
         {
             currentIntegrity -= impactForce - impactDamageThreshold;
             Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
-
-            damageModel.ProcessDamage();
-
+            
             PlayImpact(collision, impactForce);
 
             if (currentIntegrity <= 0)
