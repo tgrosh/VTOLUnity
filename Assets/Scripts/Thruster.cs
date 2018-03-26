@@ -44,28 +44,11 @@ public class Thruster : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (cutout) thrustValue = 0;
-
-        thrustValue *= maxThrust;
-
-        engineMain.startSize = engineSizeMax * thrustValue;
-        engineMain.startSpeed = engineSpeedMax * thrustValue;
-        trailMain.startSize = trailSizeMax * thrustValue;
-        trailMain.startSpeed = trailSpeedMax * thrustValue;
-        trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
-        thrusterAudio.pitch = thrustValue;
-        thrusterAudio.volume = thrustValue;
+        
     }
 
     void FixedUpdate()
     {
-        thrustValue *= maxThrust;
-
-        if (fuelTank.fuelRemaining <= 0)
-        {
-            thrustValue = 0;
-        }
-
         if (erratic)
         {
             if (!cutout)
@@ -92,7 +75,23 @@ public class Thruster : MonoBehaviour {
             cutout = false;
             thrusterCutoutCurrent = 0f;
         }
-        
+
+
+        if (cutout || fuelTank.fuelRemaining <= 0)
+        {
+            thrustValue = 0;
+        }
+
+        thrustValue *= maxThrust;
+
+        engineMain.startSize = engineSizeMax * thrustValue;
+        engineMain.startSpeed = engineSpeedMax * thrustValue;
+        trailMain.startSize = trailSizeMax * thrustValue;
+        trailMain.startSpeed = trailSpeedMax * thrustValue;
+        trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
+        thrusterAudio.pitch = thrustValue;
+        thrusterAudio.volume = thrustValue;
+
         if (!cutout && thrustValue > 0)
         {
             forceBody.AddRelativeForce(Vector3.up * thrustForce * thrustValue, ForceMode.Force);
