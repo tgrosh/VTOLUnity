@@ -9,21 +9,24 @@ public class SwitchArea : Switchable {
 
     List<Rigidbody> currentRoots = new List<Rigidbody>();
     bool areaActive = true;
-    Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
     
     void OnDrawGizmos()
     {
+        Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
         Gizmos.color = gizmoColor;
         Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().bounds.size);
+
+        gizmoColor.a = 1f;
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawLine(transform.position, GetComponent<Switch>().target.transform.position);
     }
 
     void Reset()
     {
-        gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
         persistent = false;
         transportOnly = true;
     }
-    
+        
     void OnTriggerEnter(Collider collider)
     {
         if (!areaActive) return;

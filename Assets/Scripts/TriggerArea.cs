@@ -8,17 +8,20 @@ public class TriggerArea : Switchable {
 
     List<Rigidbody> currentRoots = new List<Rigidbody>();
     bool areaActive = true;
-    Color gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
 
     void OnDrawGizmos()
     {
+        Color gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
         Gizmos.color = gizmoColor;
         Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().bounds.size);
+
+        gizmoColor.a = 1f;
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawLine(transform.position, GetComponent<Trigger>().target.transform.position);
     }
 
     void Reset()
     {
-        gizmoColor = new Color(0f, 0.580f, 1f, 0.25F);
         transportOnly = true;
     }
     

@@ -7,6 +7,13 @@ public class Switch : MonoBehaviour {
 
     bool persistentOn;
     GameObject origin;
+    
+    void OnDrawGizmos()
+    {
+        Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 1F);
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawLine(transform.position, target.transform.position);
+    }
 
     public void On(GameObject origin, bool persistent)
     {
