@@ -21,30 +21,37 @@ public class Winch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!triggerPulled && !winchActive && Input.GetAxis("RightTrigger") > 0)
+        if (!triggerPulled && Input.GetAxis("RightTrigger") > 0)
         {
             triggerPulled = true;
 
-            RaycastHit hit;
-            Physics.Raycast(transform.position, Vector3.down, out hit, winchProximityMax);
-
-            if (hit.collider != null)
+            if (!winchActive)
             {
-                WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
-                if (winchPoint != null)
+                RaycastHit hit;
+                Physics.Raycast(transform.position, Vector3.down, out hit, winchProximityMax);
+
+                if (hit.collider != null)
                 {
-                    if (hit.distance > winchProximityMin)
+                    WinchPoint winchPoint = hit.collider.GetComponent<WinchPoint>();
+                    if (winchPoint != null)
                     {
-                        winchActive = true;
-                        Connect(winchPoint);
+                        if (hit.distance > winchProximityMin)
+                        {
+                            winchActive = true;
+                            Connect(winchPoint);
+                        }
                     }
-                }                
+                }
             }
-        } else if (winchActive && Input.GetAxis("RightTrigger") <= 0)
+        } else if (Input.GetAxis("RightTrigger") <= 0)
         {
             triggerPulled = false;
-            winchActive = false;
-            Disconnect();
+
+            if (winchActive)
+            {
+                winchActive = false;
+                Disconnect();
+            }
         }
     }
 
