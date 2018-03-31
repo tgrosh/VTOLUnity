@@ -26,6 +26,7 @@ public class Transport : Explodable {
     public bool thrustersEnabled = true;
     public float cargoPickupMax;
     public float throttle;
+    public float electrifiedDuration = 0f;
 
     bool inShutdown;
     float shutdownDuration = 5f;
@@ -33,7 +34,10 @@ public class Transport : Explodable {
     int currentStatus; //0 = green, 1 = red
     bool cargoDropSafe;
     float impactIntegrityFactor = .25f; // percentage of maxIntegrity. .25 = 25% of max integrity is considered a full impact
-    
+    float electrifiedDamageInterval;
+    float currentElectrifiedInterval;
+    float electrifiedDamageIntervalAmount;
+
     void Reset()
     {
         maxRotation = 20;
@@ -55,10 +59,30 @@ public class Transport : Explodable {
     void Update()
     {
         if (exploded) return;
-        
+
+        if (currentIntegrity <= 0)
+        {
+            Explode();
+        }
+
         foreach (GameObject led in statusLEDs)
         {
             led.GetComponent<Animator>().SetInteger("status", currentStatus);
+        }
+
+        if (electrifiedDuration > 0)
+        {
+            if (currentElectrifiedInterval > electrifiedDamageInterval)
+            {
+                //take damage
+                currentIntegrity -= electrifiedDamageIntervalAmount;
+                damageModel.Shock();
+                currentElectrifiedInterval = 0;
+            } else
+            {
+                currentElectrifiedInterval += Time.deltaTime;
+                electrifiedDuration -= Time.deltaTime;
+            }
         }
 
         if (inShutdown)
@@ -185,12 +209,7 @@ public class Transport : Explodable {
             currentIntegrity -= impactForce - impactDamageThreshold;
             Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
             
-            PlayImpact(collision, impactForce);
-
-            if (currentIntegrity <= 0)
-            {
-                Explode();
-            }
+            PlayImpact(collision, impactForce);            
         }
     }
 
@@ -219,10 +238,19 @@ public class Transport : Explodable {
         body.AddForce(direction.normalized * force, ForceMode.Impulse);
     }
             
+    public void Electrify(float interval, float damageIntervalAmount, float duration)
+    {
+        damageModel.Shock();
+        electrifiedDamageInterval = interval;
+        electrifiedDamageIntervalAmount = damageIntervalAmount;
+        electrifiedDuration = duration;
+    }
+
     public override void Explode()
     {
         if (!exploded)
         {
+            thrustersEnabled = false;
             Camera.main.GetComponent<Cinemachine.CinemachineBrain>().ActiveVirtualCamera.Follow = null;
 
             Destroy(transform.Find("CenterOfMass").gameObject);

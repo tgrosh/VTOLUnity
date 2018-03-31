@@ -55,7 +55,7 @@ public class Thruster : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (erratic)
+        if (erratic || cutout)
         {
             if (!cutout)
             {
@@ -63,7 +63,6 @@ public class Thruster : MonoBehaviour {
                 if (rand < thrusterCutoutChance * Time.deltaTime)
                 {
                     //turn off the thruster
-                    cutout = true;
                     PlayEngineCutoff();
                 }
             }
@@ -72,14 +71,12 @@ public class Thruster : MonoBehaviour {
                 thrusterCutoutCurrent += Time.deltaTime;
                 if (thrusterCutoutCurrent > thrusterCutoutDuration)
                 {
-                    cutout = false;
-                    thrusterCutoutCurrent = 0f;
+                    StopEngineCutoff();
                 }
             }
-        } else
+        } else if (!erratic)
         {
-            cutout = false;
-            thrusterCutoutCurrent = 0f;
+            StopEngineCutoff();
         }
 
         if (autoHover)
@@ -149,11 +146,17 @@ public class Thruster : MonoBehaviour {
     
     public void PlayEngineCutoff()
     {
+        cutout = true;
         foreach (ParticleSystem cutoff in cutoffParticles)
         {
             cutoff.Stop(false, ParticleSystemStopBehavior.StopEmitting);
             cutoff.Play();
         }
     }
-        
+    
+    public void StopEngineCutoff()
+    {
+        cutout = false;
+        thrusterCutoutCurrent = 0f;
+    }
 }

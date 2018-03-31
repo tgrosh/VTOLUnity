@@ -5,11 +5,14 @@ using UnityEngine;
 public class TransportDamageModel : MonoBehaviour {
     public ParticleSystem[] damageLight;
     public ParticleSystem[] damageMedium;
-    
+    public ParticleSystem[] electrified;
+    public ParticleSystem[] shocked;
+
     Transport transport;
     bool showingDamageLight;
     bool showingDamageMedium;
     bool showingDamageHeavy;
+    bool showingElectrified;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +44,13 @@ public class TransportDamageModel : MonoBehaviour {
         } else
         {
             StopDamageModelLight();
+        }
+        if (transport.electrifiedDuration > 0)
+        {
+            StartElectrified();
+        } else
+        {
+            StopElectrified();
         }
     }
     
@@ -118,5 +128,47 @@ public class TransportDamageModel : MonoBehaviour {
             thruster.erratic = false;
         }
         showingDamageHeavy = false;
+    }
+
+    private void StartElectrified()
+    {
+        if (showingElectrified) return;
+
+        foreach (ParticleSystem sys in electrified)
+        {
+            sys.Play();
+        }
+        foreach (Thruster thruster in transport.thrusters)
+        {
+            thruster.erratic = true;
+        }
+        showingElectrified = true;
+    }
+
+    public void StopElectrified()
+    {
+        if (!showingElectrified) return;
+
+        foreach (ParticleSystem sys in electrified)
+        {
+            sys.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        }
+        foreach (Thruster thruster in transport.thrusters)
+        {
+            thruster.erratic = false;
+        }
+        showingElectrified = false;
+    }
+
+    public void Shock()
+    {
+        foreach (ParticleSystem sys in shocked)
+        {
+            sys.Play();
+        }
+        foreach (Thruster thruster in transport.thrusters)
+        {
+            thruster.PlayEngineCutoff();
+        }
     }
 }

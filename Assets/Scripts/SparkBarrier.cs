@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SparkBarrier : Switchable {
+    public float interval;
+    public float damagerPerInterval;
+    public float duration;
+
     Sparker[] sparkers;
 
     // Use this for initialization
@@ -17,7 +21,7 @@ public class SparkBarrier : Switchable {
 
         if (transport != null)
         {
-            transport.Explode();
+            transport.Electrify(interval, damagerPerInterval, duration);
         }
     }
     
