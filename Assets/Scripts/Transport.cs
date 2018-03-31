@@ -27,6 +27,7 @@ public class Transport : Explodable {
     public float cargoPickupMax;
     public float throttle;
     public float electrifiedDuration = 0f;
+    public GameObject inputController;
 
     bool inShutdown;
     float shutdownDuration = 5f;
@@ -58,7 +59,7 @@ public class Transport : Explodable {
 
     void Update()
     {
-        if (exploded) return;
+        if (exploded || !inputController.activeInHierarchy) return;
 
         if (currentIntegrity <= 0)
         {
@@ -169,7 +170,7 @@ public class Transport : Explodable {
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (exploded) return;
+        if (exploded || !inputController.activeInHierarchy) return;
 
         if (body.velocity.z < -.05)
         {
