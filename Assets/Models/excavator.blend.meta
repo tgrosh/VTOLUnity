@@ -13,6 +13,20 @@ ModelImporter:
     100010: Cube_004
     100012: Cube_005
     100014: Cylinder
+    100016: Cube_006
+    100018: Arm1
+    100020: Arm2
+    100022: Base
+    100024: Body
+    100026: Bucket
+    100028: Exhaust
+    100030: Track_L
+    100032: Track_R
+    100034: Armature
+    100036: Bone
+    100038: Bone_001
+    100040: Bone_002
+    100042: Bone_003
     400000: Cube
     400002: Cube_001
     400004: //RootNode
@@ -21,6 +35,20 @@ ModelImporter:
     400010: Cube_004
     400012: Cube_005
     400014: Cylinder
+    400016: Cube_006
+    400018: Arm1
+    400020: Arm2
+    400022: Base
+    400024: Body
+    400026: Bucket
+    400028: Exhaust
+    400030: Track_L
+    400032: Track_R
+    400034: Armature
+    400036: Bone
+    400038: Bone_001
+    400040: Bone_002
+    400042: Bone_003
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
@@ -28,6 +56,15 @@ ModelImporter:
     2300008: Cube_004
     2300010: Cube_005
     2300012: Cylinder
+    2300014: Cube_006
+    2300016: Arm1
+    2300018: Arm2
+    2300020: Base
+    2300022: Body
+    2300024: Bucket
+    2300026: Exhaust
+    2300028: Track_L
+    2300030: Track_R
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
@@ -35,6 +72,15 @@ ModelImporter:
     3300008: Cube_004
     3300010: Cube_005
     3300012: Cylinder
+    3300014: Cube_006
+    3300016: Arm1
+    3300018: Arm2
+    3300020: Base
+    3300022: Body
+    3300024: Bucket
+    3300026: Exhaust
+    3300028: Track_L
+    3300030: Track_R
     4300000: Cube_001
     4300002: Cube
     4300004: Cylinder
@@ -42,8 +88,22 @@ ModelImporter:
     4300008: Cube_004
     4300010: Cube_003
     4300012: Cube_002
+    4300014: Cube_006
+    4300016: Track_L
+    4300018: Track_R
+    4300020: Base
+    4300022: Exhaust
+    4300024: Bucket
+    4300026: Arm2
+    4300028: Arm1
+    4300030: Body
     7400000: Default Take
     9500000: //RootNode
+    13700000: Arm1
+    13700002: Arm2
+    13700004: Body
+    13700006: Bucket
+    13700008: Exhaust
   externalObjects:
   - first:
       type: UnityEngine:Material
