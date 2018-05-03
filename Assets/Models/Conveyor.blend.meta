@@ -1,100 +1,105 @@
 fileFormatVersion: 2
-guid: 1959e279a80d50344b0fc8eea60709ee
-timeCreated: 1524937988
+guid: 08869fe2c171dc94bbc10f4ad2f1bbfd
+timeCreated: 1525277830
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Bed
-    100002: BedLift
-    100004: Body
-    100006: Cab
-    100008: //RootNode
-    100010: Exhaust
-    100012: Wheel
-    100014: Wheel_001
-    100016: Wheel_002
-    100018: Wheel_003
-    100020: BedDirt
-    400000: Bed
-    400002: BedLift
-    400004: Body
-    400006: Cab
-    400008: //RootNode
-    400010: Exhaust
-    400012: Wheel
-    400014: Wheel_001
-    400016: Wheel_002
-    400018: Wheel_003
-    400020: BedDirt
-    2300000: Bed
-    2300002: BedLift
-    2300004: Body
-    2300006: Cab
-    2300008: Exhaust
-    2300010: Wheel
-    2300012: Wheel_001
-    2300014: Wheel_002
-    2300016: Wheel_003
-    2300018: BedDirt
-    3300000: Bed
-    3300002: BedLift
-    3300004: Body
-    3300006: Cab
-    3300008: Exhaust
-    3300010: Wheel
-    3300012: Wheel_001
-    3300014: Wheel_002
-    3300016: Wheel_003
-    3300018: BedDirt
-    4300000: BedLift
-    4300002: Wheel_003
-    4300004: Wheel_002
-    4300006: Wheel_001
-    4300008: Exhaust
-    4300010: Cab
-    4300012: Wheel
-    4300014: Bed
-    4300016: Body
-    4300018: BedDirt
+    100000: //RootNode
+    100002: Cube
+    100004: Track_R
+    100006: Track_R_001
+    100008: Cylinder
+    100010: Cylinder_001
+    100012: Cylinder_002
+    100014: Cylinder_003
+    100016: ConveyorBody
+    100018: Wheel
+    100020: Wheel_001
+    100022: Wheel_002
+    100024: Wheel_003
+    400000: //RootNode
+    400002: Cube
+    400004: Track_R
+    400006: Track_R_001
+    400008: Cylinder
+    400010: Cylinder_001
+    400012: Cylinder_002
+    400014: Cylinder_003
+    400016: ConveyorBody
+    400018: Wheel
+    400020: Wheel_001
+    400022: Wheel_002
+    400024: Wheel_003
+    2300000: Cube
+    2300002: Track_R
+    2300004: Track_R_001
+    2300006: Cylinder
+    2300008: Cylinder_001
+    2300010: Cylinder_002
+    2300012: Cylinder_003
+    2300014: ConveyorBody
+    2300016: Wheel
+    2300018: Wheel_001
+    2300020: Wheel_002
+    2300022: Wheel_003
+    3300000: Cube
+    3300002: Track_R
+    3300004: Track_R_001
+    3300006: Cylinder
+    3300008: Cylinder_001
+    3300010: Cylinder_002
+    3300012: Cylinder_003
+    3300014: ConveyorBody
+    3300016: Wheel
+    3300018: Wheel_001
+    3300020: Wheel_002
+    3300022: Wheel_003
+    4300000: Track_R_001
+    4300002: Cube
+    4300004: Track_R
+    4300006: Cylinder
+    4300008: Cylinder_003
+    4300010: Cylinder_002
+    4300012: Cylinder_001
+    4300014: Wheel_003
+    4300016: Wheel_002
+    4300018: Wheel_001
+    4300020: Wheel
+    4300022: ConveyorBody
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckBody
-    second: {fileID: 2100000, guid: 04559e00af73daf4f8555cb3b504c69f, type: 2}
+      name: ConveyorAccent
+    second: {fileID: 2100000, guid: 00f7cec5d29f19a47b5ccea567fee795, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckDirt
-    second: {fileID: 2100000, guid: c86a08c0ab03d3f438d44e9c9607cb2c, type: 2}
+      name: ConveyorBase
+    second: {fileID: 2100000, guid: d3da92ef9d8cff946a72e069a16959bb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckGlass
-    second: {fileID: 2100000, guid: 8a4a7c3221b0a7a4a99f51a7fab2b85a, type: 2}
+      name: ConveyorWheels
+    second: {fileID: 2100000, guid: f0ebc6c3bc5e7884a8226b90606e4af1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckHeadlights
-    second: {fileID: 2100000, guid: c3bca879731c4c2418f53be1efb810c8, type: 2}
+      name: ExcavatorMetal
+    second: {fileID: 2100000, guid: 26ac493e7dbc2054abd3ba3ad10a4765, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckMetal
-    second: {fileID: 2100000, guid: 728b567d86bf02544837cdbfb52a9ee5, type: 2}
+      name: ExcavatorTrim
+    second: {fileID: 2100000, guid: 1020eb729fa144b429ca187460eecb0f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DumpTruckTires
-    second: {fileID: 2100000, guid: 7d284889bc5311e41a23a2ff8a12d3b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DumpTruckTrim
-    second: {fileID: 2100000, guid: 45eabc452df631e4682d4e6bcaf16442, type: 2}
+      name: unnamed
+    second: {fileID: 2100000, guid: 88295f3b78a8dd640ab0ae653f221a66, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
