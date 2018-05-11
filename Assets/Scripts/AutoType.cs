@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,25 +10,45 @@ public class AutoType : MonoBehaviour {
     public AudioClip sound;
 
     string message;
-    Text text;
+    StringBuilder currentText = new StringBuilder();
+    Text uiText;
 
     // Use this for initialization
     void Start()
     {
-        text = GetComponent<Text>();
-        message = text.text;
-        text.text = "";
-        StartCoroutine(TypeText());
+        uiText = GetComponent<Text>();
+        SetText(uiText.text);
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            StopCoroutine("TypeText");
+            uiText.text = message;
+        }
+    }
+
+    public void SetText(string text)
+    {
+        StopCoroutine("TypeText");
+        currentText = new StringBuilder();
+        message = text;
+        uiText.text = "";
+        StartCoroutine("TypeText");
     }
 
     IEnumerator TypeText()
     {
         foreach (char letter in message.ToCharArray())
         {
-            text.text += letter;
+            currentText.Append(letter);
+            uiText.text = currentText.ToString();
             if (audioSource && sound)
+            {
                 audioSource.PlayOneShot(sound);
-            yield return 0;
+                yield return 0;
+            }
             yield return new WaitForSeconds(letterDelay);
         }
     }
