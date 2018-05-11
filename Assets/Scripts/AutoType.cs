@@ -8,25 +8,26 @@ public class AutoType : MonoBehaviour {
     public AudioSource audioSource;
     public float letterDelay = 0.2f;
     public AudioClip sound;
+    public bool typingComplete;
 
     string message;
     StringBuilder currentText = new StringBuilder();
     Text uiText;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         uiText = GetComponent<Text>();
-        SetText(uiText.text);
     }
-
+    
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (!typingComplete && Input.GetButtonDown("Fire1"))
         {
             StopCoroutine("TypeText");
             uiText.text = message;
         }
+
+        typingComplete = uiText.text == message;
     }
 
     public void SetText(string text)
