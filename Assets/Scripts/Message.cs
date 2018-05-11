@@ -1,4 +1,7 @@
-﻿public class Message
+﻿using System;
+
+[Serializable]
+public class Message
 {
     public string title;
     public string text;
