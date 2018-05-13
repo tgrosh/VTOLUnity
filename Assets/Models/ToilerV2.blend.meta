@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 0398e83fd0e2e814a81f8042fb2b0deb
-timeCreated: 1522849521
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -341,6 +339,7 @@ ModelImporter:
     13700000: character_dwarf_male_dwarfmale_000
     13700002: toilerv2
     13700004: toilerv2_001
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -400,6 +399,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -424,6 +424,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
