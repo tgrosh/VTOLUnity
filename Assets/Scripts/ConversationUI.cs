@@ -18,8 +18,8 @@ public class ConversationUI : MonoBehaviour {
         group = GetComponent<CanvasGroup>();
 
         //testing
-        Conversation testConversation = Resources.Load<Conversation>("Conversations/TestConversation");
-        StartConversation(testConversation);
+        //Conversation testConversation = Resources.Load<Conversation>("Conversations/TestConversation");
+        //StartConversation(testConversation);
     }
     	
 	// Update is called once per frame
