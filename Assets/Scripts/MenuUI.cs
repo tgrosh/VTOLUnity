@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MenuUI : MonoBehaviour {
     public Cinemachine.CinemachineVirtualCamera MenuCam;
@@ -22,9 +23,8 @@ public class MenuUI : MonoBehaviour {
 
     public void OnStartPressed()
     {
-        MenuCam.gameObject.SetActive(false);
-        InputController.SetActive(true);
-        Invoke("Hide", 1f);
+        //temporary code
+        GameObject.Find("IntroTimeline").GetComponent<PlayableDirector>().Play();
     }
 
     public void Hide()
