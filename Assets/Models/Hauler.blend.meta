@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 714f8024e3782344e82ec3df8448e70a
-timeCreated: 1488119046
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -24,6 +22,8 @@ ModelImporter:
     100032: Thruster_001
     100034: Thruster1
     100036: Thruster2
+    100038: Cockpit_001
+    100040: Reins
     400000: Body
     400002: Cockpit
     400004: Cylinder
@@ -43,6 +43,8 @@ ModelImporter:
     400032: Thruster_001
     400034: Thruster1
     400036: Thruster2
+    400038: Cockpit_001
+    400040: Reins
     2300000: Body
     2300002: Cockpit
     2300004: Cylinder
@@ -61,6 +63,8 @@ ModelImporter:
     2300030: Thruster_001
     2300032: Thruster1
     2300034: Thruster2
+    2300036: Cockpit_001
+    2300038: Reins
     3300000: Body
     3300002: Cockpit
     3300004: Cylinder
@@ -79,6 +83,8 @@ ModelImporter:
     3300030: Thruster_001
     3300032: Thruster1
     3300034: Thruster2
+    3300036: Cockpit_001
+    3300038: Reins
     4300000: Cylinder_001
     4300002: Cylinder
     4300004: Plane
@@ -97,6 +103,8 @@ ModelImporter:
     4300030: Thruster
     4300032: Thruster1
     4300034: Thruster2
+    4300036: Cockpit_001
+    4300038: Reins
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -115,6 +123,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Glass
     second: {fileID: 2100000, guid: dda7af47e744ba144836f33a5006e96c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__HaulerBody
+    second: {fileID: 2100000, guid: 3f8d8e78355b971439d659546d3534f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -133,6 +146,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -157,6 +171,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
