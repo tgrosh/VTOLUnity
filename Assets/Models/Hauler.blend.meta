@@ -24,6 +24,11 @@ ModelImporter:
     100036: Thruster2
     100038: Cockpit_001
     100040: Reins
+    100042: Cube
+    100044: Cube_001
+    100046: Cube_002
+    100048: Saddle
+    100050: SaddleRails
     400000: Body
     400002: Cockpit
     400004: Cylinder
@@ -45,6 +50,11 @@ ModelImporter:
     400036: Thruster2
     400038: Cockpit_001
     400040: Reins
+    400042: Cube
+    400044: Cube_001
+    400046: Cube_002
+    400048: Saddle
+    400050: SaddleRails
     2300000: Body
     2300002: Cockpit
     2300004: Cylinder
@@ -65,6 +75,11 @@ ModelImporter:
     2300034: Thruster2
     2300036: Cockpit_001
     2300038: Reins
+    2300040: Cube
+    2300042: Cube_001
+    2300044: Cube_002
+    2300046: Saddle
+    2300048: SaddleRails
     3300000: Body
     3300002: Cockpit
     3300004: Cylinder
@@ -85,6 +100,11 @@ ModelImporter:
     3300034: Thruster2
     3300036: Cockpit_001
     3300038: Reins
+    3300040: Cube
+    3300042: Cube_001
+    3300044: Cube_002
+    3300046: Saddle
+    3300048: SaddleRails
     4300000: Cylinder_001
     4300002: Cylinder
     4300004: Plane
@@ -105,6 +125,11 @@ ModelImporter:
     4300034: Thruster2
     4300036: Cockpit_001
     4300038: Reins
+    4300040: Cube_002
+    4300042: Cube_001
+    4300044: Cube
+    4300046: SaddleRails
+    4300048: Saddle
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
