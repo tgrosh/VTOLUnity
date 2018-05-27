@@ -354,6 +354,8 @@ ModelImporter:
     7400030: LookAround
     7400032: Startle
     7400034: Standing
+    7400036: LeanForwardLooking
+    7400038: JockeyMount
     9500000: //RootNode
     13700000: character_dwarf_male_dwarfmale_000
     13700002: toilerv2
@@ -414,11 +416,18 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Working' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'f_index_01_R' has translation animation that
-      will be discarded.\n\t'f_middle_01_R' has translation animation that will be
-      discarded.\n\t'f_ring_01_R' has translation animation that will be discarded.\n\t'f_pinky_01_R'
+    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'shoulder_L' has translation animation that
+      will be discarded.\n\t'shoulder_R' has translation animation that will be discarded.\n\nClip
+      'JockeyMount' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'shoulder_L'
+      has translation animation that will be discarded.\n\t'shoulder_R' has translation
+      animation that will be discarded.\n\nClip 'Working' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'f_index_01_R' has translation animation
+      that will be discarded.\n\t'f_middle_01_R' has translation animation that will
+      be discarded.\n\t'f_ring_01_R' has translation animation that will be discarded.\n\t'f_pinky_01_R'
       has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -3844,6 +3853,62 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: 7cb7ef5b3de495f4dbab444f50fc621f, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LeanForwardLooking
+      takeName: LeanForwardLooking
+      firstFrame: -1
+      lastFrame: 95
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {fileID: 31900000, guid: 7cb7ef5b3de495f4dbab444f50fc621f, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: JockeyMount
+      takeName: JockeyMount
+      firstFrame: -1
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
