@@ -1,137 +1,395 @@
 fileFormatVersion: 2
 guid: 714f8024e3782344e82ec3df8448e70a
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Body
-    100002: Cockpit
-    100004: Cylinder
-    100006: Cylinder_001
-    100008: Front_Grill
-    100010: FrontWindow
-    100012: //RootNode
-    100014: Landing_Gear_Front_Left
-    100016: Landing_Gear_Front_Right
-    100018: Landing_Gear_Left_Rear
-    100020: LandingGear_Right_Rear
-    100022: Plane
-    100024: Porthole_Glass
-    100026: Rear_Accent
-    100028: TopWindow
-    100030: Thruster
-    100032: Thruster_001
-    100034: Thruster1
-    100036: Thruster2
-    100038: Cockpit_001
-    100040: Reins
-    100042: Cube
-    100044: Cube_001
-    100046: Cube_002
-    100048: Saddle
-    100050: SaddleRails
-    400000: Body
-    400002: Cockpit
-    400004: Cylinder
-    400006: Cylinder_001
-    400008: Front_Grill
-    400010: FrontWindow
-    400012: //RootNode
-    400014: Landing_Gear_Front_Left
-    400016: Landing_Gear_Front_Right
-    400018: Landing_Gear_Left_Rear
-    400020: LandingGear_Right_Rear
-    400022: Plane
-    400024: Porthole_Glass
-    400026: Rear_Accent
-    400028: TopWindow
-    400030: Thruster
-    400032: Thruster_001
-    400034: Thruster1
-    400036: Thruster2
-    400038: Cockpit_001
-    400040: Reins
-    400042: Cube
-    400044: Cube_001
-    400046: Cube_002
-    400048: Saddle
-    400050: SaddleRails
-    2300000: Body
-    2300002: Cockpit
-    2300004: Cylinder
-    2300006: Cylinder_001
-    2300008: Front_Grill
-    2300010: FrontWindow
-    2300012: Landing_Gear_Front_Left
-    2300014: Landing_Gear_Front_Right
-    2300016: Landing_Gear_Left_Rear
-    2300018: LandingGear_Right_Rear
-    2300020: Plane
-    2300022: Porthole_Glass
-    2300024: Rear_Accent
-    2300026: TopWindow
-    2300028: Thruster
-    2300030: Thruster_001
-    2300032: Thruster1
-    2300034: Thruster2
-    2300036: Cockpit_001
-    2300038: Reins
-    2300040: Cube
-    2300042: Cube_001
-    2300044: Cube_002
-    2300046: Saddle
-    2300048: SaddleRails
-    3300000: Body
-    3300002: Cockpit
-    3300004: Cylinder
-    3300006: Cylinder_001
-    3300008: Front_Grill
-    3300010: FrontWindow
-    3300012: Landing_Gear_Front_Left
-    3300014: Landing_Gear_Front_Right
-    3300016: Landing_Gear_Left_Rear
-    3300018: LandingGear_Right_Rear
-    3300020: Plane
-    3300022: Porthole_Glass
-    3300024: Rear_Accent
-    3300026: TopWindow
-    3300028: Thruster
-    3300030: Thruster_001
-    3300032: Thruster1
-    3300034: Thruster2
-    3300036: Cockpit_001
-    3300038: Reins
-    3300040: Cube
-    3300042: Cube_001
-    3300044: Cube_002
-    3300046: Saddle
-    3300048: SaddleRails
-    4300000: Cylinder_001
-    4300002: Cylinder
-    4300004: Plane
-    4300006: Cockpit
-    4300008: Landing_Gear_Front_Right
-    4300010: LandingGear_Right_Rear
-    4300012: Landing_Gear_Left_Rear
-    4300014: Landing_Gear_Front_Left
-    4300016: Porthole_Glass
-    4300018: Front_Grill
-    4300020: Rear_Accent
-    4300022: TopWindow
-    4300024: FrontWindow
-    4300026: Body
-    4300028: Thruster_001
-    4300030: Thruster
-    4300032: Thruster1
-    4300034: Thruster2
-    4300036: Cockpit_001
-    4300038: Reins
-    4300040: Cube_002
-    4300042: Cube_001
-    4300044: Cube
-    4300046: SaddleRails
-    4300048: Saddle
-    7400000: Default Take
-    9500000: //RootNode
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body
+  - first:
+      1: 100002
+    second: Cockpit
+  - first:
+      1: 100004
+    second: Cylinder
+  - first:
+      1: 100006
+    second: Cylinder_001
+  - first:
+      1: 100008
+    second: Front_Grill
+  - first:
+      1: 100010
+    second: FrontWindow
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: Landing_Gear_Front_Left
+  - first:
+      1: 100016
+    second: Landing_Gear_Front_Right
+  - first:
+      1: 100018
+    second: Landing_Gear_Left_Rear
+  - first:
+      1: 100020
+    second: LandingGear_Right_Rear
+  - first:
+      1: 100022
+    second: Plane
+  - first:
+      1: 100024
+    second: Porthole_Glass
+  - first:
+      1: 100026
+    second: Rear_Accent
+  - first:
+      1: 100028
+    second: TopWindow
+  - first:
+      1: 100030
+    second: Thruster
+  - first:
+      1: 100032
+    second: Thruster_001
+  - first:
+      1: 100034
+    second: Thruster1
+  - first:
+      1: 100036
+    second: Thruster2
+  - first:
+      1: 100038
+    second: Cockpit_001
+  - first:
+      1: 100040
+    second: Reins
+  - first:
+      1: 100042
+    second: Cube
+  - first:
+      1: 100044
+    second: Cube_001
+  - first:
+      1: 100046
+    second: Cube_002
+  - first:
+      1: 100048
+    second: Saddle
+  - first:
+      1: 100050
+    second: SaddleRails
+  - first:
+      4: 400000
+    second: Body
+  - first:
+      4: 400002
+    second: Cockpit
+  - first:
+      4: 400004
+    second: Cylinder
+  - first:
+      4: 400006
+    second: Cylinder_001
+  - first:
+      4: 400008
+    second: Front_Grill
+  - first:
+      4: 400010
+    second: FrontWindow
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: Landing_Gear_Front_Left
+  - first:
+      4: 400016
+    second: Landing_Gear_Front_Right
+  - first:
+      4: 400018
+    second: Landing_Gear_Left_Rear
+  - first:
+      4: 400020
+    second: LandingGear_Right_Rear
+  - first:
+      4: 400022
+    second: Plane
+  - first:
+      4: 400024
+    second: Porthole_Glass
+  - first:
+      4: 400026
+    second: Rear_Accent
+  - first:
+      4: 400028
+    second: TopWindow
+  - first:
+      4: 400030
+    second: Thruster
+  - first:
+      4: 400032
+    second: Thruster_001
+  - first:
+      4: 400034
+    second: Thruster1
+  - first:
+      4: 400036
+    second: Thruster2
+  - first:
+      4: 400038
+    second: Cockpit_001
+  - first:
+      4: 400040
+    second: Reins
+  - first:
+      4: 400042
+    second: Cube
+  - first:
+      4: 400044
+    second: Cube_001
+  - first:
+      4: 400046
+    second: Cube_002
+  - first:
+      4: 400048
+    second: Saddle
+  - first:
+      4: 400050
+    second: SaddleRails
+  - first:
+      23: 2300000
+    second: Body
+  - first:
+      23: 2300002
+    second: Cockpit
+  - first:
+      23: 2300004
+    second: Cylinder
+  - first:
+      23: 2300006
+    second: Cylinder_001
+  - first:
+      23: 2300008
+    second: Front_Grill
+  - first:
+      23: 2300010
+    second: FrontWindow
+  - first:
+      23: 2300012
+    second: Landing_Gear_Front_Left
+  - first:
+      23: 2300014
+    second: Landing_Gear_Front_Right
+  - first:
+      23: 2300016
+    second: Landing_Gear_Left_Rear
+  - first:
+      23: 2300018
+    second: LandingGear_Right_Rear
+  - first:
+      23: 2300020
+    second: Plane
+  - first:
+      23: 2300022
+    second: Porthole_Glass
+  - first:
+      23: 2300024
+    second: Rear_Accent
+  - first:
+      23: 2300026
+    second: TopWindow
+  - first:
+      23: 2300028
+    second: Thruster
+  - first:
+      23: 2300030
+    second: Thruster_001
+  - first:
+      23: 2300032
+    second: Thruster1
+  - first:
+      23: 2300034
+    second: Thruster2
+  - first:
+      23: 2300036
+    second: Cockpit_001
+  - first:
+      23: 2300038
+    second: Reins
+  - first:
+      23: 2300040
+    second: Cube
+  - first:
+      23: 2300042
+    second: Cube_001
+  - first:
+      23: 2300044
+    second: Cube_002
+  - first:
+      23: 2300046
+    second: Saddle
+  - first:
+      23: 2300048
+    second: SaddleRails
+  - first:
+      33: 3300000
+    second: Body
+  - first:
+      33: 3300002
+    second: Cockpit
+  - first:
+      33: 3300004
+    second: Cylinder
+  - first:
+      33: 3300006
+    second: Cylinder_001
+  - first:
+      33: 3300008
+    second: Front_Grill
+  - first:
+      33: 3300010
+    second: FrontWindow
+  - first:
+      33: 3300012
+    second: Landing_Gear_Front_Left
+  - first:
+      33: 3300014
+    second: Landing_Gear_Front_Right
+  - first:
+      33: 3300016
+    second: Landing_Gear_Left_Rear
+  - first:
+      33: 3300018
+    second: LandingGear_Right_Rear
+  - first:
+      33: 3300020
+    second: Plane
+  - first:
+      33: 3300022
+    second: Porthole_Glass
+  - first:
+      33: 3300024
+    second: Rear_Accent
+  - first:
+      33: 3300026
+    second: TopWindow
+  - first:
+      33: 3300028
+    second: Thruster
+  - first:
+      33: 3300030
+    second: Thruster_001
+  - first:
+      33: 3300032
+    second: Thruster1
+  - first:
+      33: 3300034
+    second: Thruster2
+  - first:
+      33: 3300036
+    second: Cockpit_001
+  - first:
+      33: 3300038
+    second: Reins
+  - first:
+      33: 3300040
+    second: Cube
+  - first:
+      33: 3300042
+    second: Cube_001
+  - first:
+      33: 3300044
+    second: Cube_002
+  - first:
+      33: 3300046
+    second: Saddle
+  - first:
+      33: 3300048
+    second: SaddleRails
+  - first:
+      43: 4300000
+    second: Cylinder_001
+  - first:
+      43: 4300002
+    second: Cylinder
+  - first:
+      43: 4300004
+    second: Plane
+  - first:
+      43: 4300006
+    second: Cockpit
+  - first:
+      43: 4300008
+    second: Landing_Gear_Front_Right
+  - first:
+      43: 4300010
+    second: LandingGear_Right_Rear
+  - first:
+      43: 4300012
+    second: Landing_Gear_Left_Rear
+  - first:
+      43: 4300014
+    second: Landing_Gear_Front_Left
+  - first:
+      43: 4300016
+    second: Porthole_Glass
+  - first:
+      43: 4300018
+    second: Front_Grill
+  - first:
+      43: 4300020
+    second: Rear_Accent
+  - first:
+      43: 4300022
+    second: TopWindow
+  - first:
+      43: 4300024
+    second: FrontWindow
+  - first:
+      43: 4300026
+    second: Body
+  - first:
+      43: 4300028
+    second: Thruster_001
+  - first:
+      43: 4300030
+    second: Thruster
+  - first:
+      43: 4300032
+    second: Thruster1
+  - first:
+      43: 4300034
+    second: Thruster2
+  - first:
+      43: 4300036
+    second: Cockpit_001
+  - first:
+      43: 4300038
+    second: Reins
+  - first:
+      43: 4300040
+    second: Cube_002
+  - first:
+      43: 4300042
+    second: Cube_001
+  - first:
+      43: 4300044
+    second: Cube
+  - first:
+      43: 4300046
+    second: SaddleRails
+  - first:
+      43: 4300048
+    second: Saddle
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -154,7 +412,7 @@ ModelImporter:
       name: None__HaulerBody
     second: {fileID: 2100000, guid: 3f8d8e78355b971439d659546d3534f4, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -185,22 +443,32 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -208,10 +476,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -221,14 +492,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -18,7 +18,7 @@ public class RepairStation : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame

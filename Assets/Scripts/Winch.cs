@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Winch : MonoBehaviour {
     public WinchHook hook;
@@ -21,7 +22,8 @@ public class Winch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!triggerPulled && Input.GetAxis("RightTrigger") > 0)
+
+        if (!triggerPulled && Gamepad.current.rightTrigger.isPressed)
         {
             triggerPulled = true;
 
@@ -43,7 +45,7 @@ public class Winch : MonoBehaviour {
                     }
                 }
             }
-        } else if (Input.GetAxis("RightTrigger") <= 0)
+        } else if (!Gamepad.current.rightTrigger.isPressed)
         {
             triggerPulled = false;
 

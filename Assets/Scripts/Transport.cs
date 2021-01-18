@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Utility;
+using UnityEngine.InputSystem;
 
 public class Transport : Explodable {
     public Rigidbody body;
     public GameObject actor;
+    public GameObject vehicle;
     public Thruster[] thrusters;
     public CargoHold cargoHold;
+    public Gauge healthGauge;
+    public GameObject centerOfMass;
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
@@ -66,6 +69,8 @@ public class Transport : Explodable {
             Explode();
         }
 
+        healthGauge.value = currentIntegrity / maxIntegrity;
+
         foreach (GameObject led in statusLEDs)
         {
             led.GetComponent<Animator>().SetInteger("status", currentStatus);
@@ -119,9 +124,9 @@ public class Transport : Explodable {
                     light.SetActive(landing);
                 }
 
-                if (Input.GetAxis("RightTrigger") > 0 && hit.distance < cargoPickupMax)
+                if (Gamepad.current.rightTrigger.isPressed && hit.distance < cargoPickupMax)
                 {  
-                    Cargo cargo = hit.collider.gameObject.GetComponentInParent<Cargo>();
+                    Cargo cargo = hit.collider.gameObject.GetComponent<Cargo>();
                     if (cargo != null)
                     {
                         StoreCargo(cargo);
@@ -137,7 +142,7 @@ public class Transport : Explodable {
                 }
             }            
 
-            if (Input.GetAxis("LeftTrigger") > 0)
+            if (Gamepad.current.leftTrigger.isPressed)
             {
                 if (cargoDropSafe)
                 {
@@ -145,12 +150,12 @@ public class Transport : Explodable {
                 }
             }
 
-            if (Input.GetButtonDown("RightBumper") && !scanner.isScanning)
+            if (Gamepad.current.rightShoulder.wasPressedThisFrame && !scanner.isScanning)
             {
                 scanner.Scan();
             }
 
-            if (Input.GetButtonDown("R3"))
+            if (Gamepad.current.rightStickButton.wasPressedThisFrame)
             {
                 spotLight.SetActive(!spotLight.activeInHierarchy);
             }
@@ -183,10 +188,10 @@ public class Transport : Explodable {
             actor.transform.localRotation = actorRotation;
         }
 
-        Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Input.GetAxis("Horizontal"), 0, 0)), Time.fixedDeltaTime * rotationSpeed);
+        Quaternion newRotation = Quaternion.Lerp(body.rotation, Quaternion.Euler(new Vector3(maxRotation * Gamepad.current.rightStick.ReadValue().x, 0, 0)), Time.fixedDeltaTime * rotationSpeed);
         body.MoveRotation(newRotation);
-        
-        throttle = Input.GetAxis("Vertical");
+
+        throttle = Gamepad.current.leftStick.ReadValue().y;
         if (!thrustersEnabled)
         {
             throttle = 0;
@@ -254,23 +259,20 @@ public class Transport : Explodable {
             thrustersEnabled = false;
             Camera.main.GetComponent<Cinemachine.CinemachineBrain>().ActiveVirtualCamera.Follow = null;
 
-            Destroy(transform.Find("CenterOfMass").gameObject);
+            Destroy(centerOfMass);
             Destroy(GetComponent<Rigidbody>());
             foreach (Thruster t in thrusters)
             {
                 Destroy(t);
             }
 
-            Transform hauler = transform.Find("Hauler");
-            foreach (Transform child in hauler)
+            foreach (Transform child in vehicle.transform)
             {
                 if (child.gameObject.layer != 8) //Jockey layer
                 {
                     child.gameObject.AddComponent<Rigidbody>();
                 }
             }
-
-            GetComponentInChildren<Jockey>().Die();
 
             base.Explode();
         }

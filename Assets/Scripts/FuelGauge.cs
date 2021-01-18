@@ -10,7 +10,7 @@ public class FuelGauge : MonoBehaviour {
     public Image labelBackground;
     public Text label;
 
-    float colorTranistionSpeed = 2f;
+    float colorTranistionSpeed = 5f;
     Color originalColor;
 	// Use this for initialization
 	void Start () {
