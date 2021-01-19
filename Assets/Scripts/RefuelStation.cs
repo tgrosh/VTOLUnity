@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RefuelStation : MonoBehaviour {
-    public float fuelPerSecond;
+    public float fuelPercentPerSecond;
     public AudioSource pumpAudio;
     public AudioSource dingAudio;
 
     Animator animator;
     bool isRefueling;
+    Transport refuelingTransport;
+    FuelTank refuelingTank;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
     }
 
-    void OnTriggerStay(Collider collider)
+    void Update()
     {
-        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
-        FuelTank tank = collider.gameObject.GetComponentInParent<FuelTank>();
-
-        if (tank != null && transport.throttle == 0)
+        if (refuelingTank != null && refuelingTransport.throttle == 0)
         {
-            if (!tank.isFull)
+            if (!refuelingTank.isFull)
             {
                 isRefueling = true;
-                tank.Fill(fuelPerSecond * Time.deltaTime);
+                refuelingTank.Fill(fuelPercentPerSecond/100f * refuelingTank.maxFuel * Time.deltaTime);
                 if (!pumpAudio.isPlaying)
                 {
                     pumpAudio.Play();
                 }
-            } else
+            }
+            else
             {
                 if (isRefueling)
                 {
@@ -42,9 +42,23 @@ public class RefuelStation : MonoBehaviour {
             animator.SetBool("isRefueling", isRefueling);
         }
     }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
+        FuelTank tank = collider.gameObject.GetComponentInParent<FuelTank>();
+
+        if (transport != null && tank != null)
+        {
+            refuelingTransport = transport;
+            refuelingTank = tank;
+        }
+    }
     
     void OnTriggerExit(Collider collider)
     {
+        if (refuelingTank == null || refuelingTransport == null) return;
+
         FuelTank tank = collider.gameObject.GetComponentInParent<FuelTank>();
         if (tank != null)
         {
@@ -53,6 +67,8 @@ public class RefuelStation : MonoBehaviour {
                 dingAudio.Play();
             }
             isRefueling = false;
+            refuelingTank = null;
+            refuelingTransport = null;
             animator.SetBool("isRefueling", false);
             pumpAudio.Stop();
         }

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class RepairStation : MonoBehaviour
 {
-    public float repairPerSecond;
+    public float repairPercentPerSecond;
     public AudioSource repairAudio;
     public AudioSource prepareAudio;
 
     Animator animator;
     bool isRepairing;
+    Transport repairingTransport;
 
     void Reset()
     {
-        repairPerSecond = 30;
+        repairPercentPerSecond = 10;
     }
 
     // Use this for initialization
@@ -23,26 +24,21 @@ public class RepairStation : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    void OnTriggerStay(Collider collider)
-    {
-        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
-
-        if (transport != null && transport.throttle == 0)
+        if (repairingTransport != null && repairingTransport.throttle == 0)
         {
-            if (transport.currentIntegrity < transport.maxIntegrity)
+            if (repairingTransport.currentIntegrity < repairingTransport.maxIntegrity)
             {
                 if (!isRepairing)
                 {
                     prepareAudio.Play();
                 }
                 isRepairing = true;
-                transport.currentIntegrity += repairPerSecond * Time.deltaTime;
-                if (transport.currentIntegrity > transport.maxIntegrity)
+                float repairAmountPerSecond = (repairPercentPerSecond / 100f * repairingTransport.maxIntegrity);
+                Debug.Log(repairAmountPerSecond);
+                repairingTransport.currentIntegrity += repairAmountPerSecond * Time.fixedDeltaTime;
+                if (repairingTransport.currentIntegrity > repairingTransport.maxIntegrity)
                 {
-                    transport.currentIntegrity = transport.maxIntegrity;
+                    repairingTransport.currentIntegrity = repairingTransport.maxIntegrity;
                 }
                 if (!repairAudio.isPlaying)
                 {
@@ -62,8 +58,19 @@ public class RepairStation : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        Transport transport = collider.gameObject.GetComponentInParent<Transport>();
+        if (transport != null)
+        {
+            repairingTransport = transport;
+        }
+    }
+
     void OnTriggerExit(Collider collider)
     {
+        if (repairingTransport == null) return;
+
         Transport transport = collider.gameObject.GetComponentInParent<Transport>();
         if (transport != null)
         {
@@ -71,6 +78,7 @@ public class RepairStation : MonoBehaviour
             {
                 prepareAudio.Play();
             }
+            repairingTransport = null;
             isRepairing = false;
             animator.SetBool("isRepairing", false);
             repairAudio.Stop();

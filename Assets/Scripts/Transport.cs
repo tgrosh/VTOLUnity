@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Transport : Explodable {
     public Rigidbody body;
@@ -15,6 +16,8 @@ public class Transport : Explodable {
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
+    public GameObject damageCanvas;
+    public GameObject damageTextPrefab;
     public Scanner scanner;
     public Transform cargoDropPoint;
     public ParticleSystem impactParticles;
@@ -41,6 +44,8 @@ public class Transport : Explodable {
     float electrifiedDamageInterval;
     float currentElectrifiedInterval;
     float electrifiedDamageIntervalAmount;
+    float recentDamage;
+    float recentDamageTimer;
 
     void Reset()
     {
@@ -159,7 +164,20 @@ public class Transport : Explodable {
             {
                 spotLight.SetActive(!spotLight.activeInHierarchy);
             }
-        }                
+        }
+
+        recentDamageTimer += Time.deltaTime;
+        if (recentDamage > 0f)
+        {
+            if (recentDamageTimer > .5f)
+            {
+                GameObject damageText = Instantiate(damageTextPrefab, damageCanvas.transform);
+                damageText.GetComponent<Text>().text = ((int)recentDamage).ToString();
+                Destroy(damageText, 1.1f);
+                recentDamage = 0f;
+                recentDamageTimer = 0f;
+            }
+        }
     }
 
     private void StoreCargo(Cargo cargo)
@@ -209,13 +227,12 @@ public class Transport : Explodable {
     {
         if (exploded) return;
 
-        float impactForce = collision.impulse.magnitude;
+        float impactForce = collision.impulse.magnitude / Time.fixedDeltaTime /1000f ;
         if (impactForce > impactDamageThreshold)
         {
-            currentIntegrity -= impactForce - impactDamageThreshold;
-            Debug.LogWarning("Integrity Remaining: " + currentIntegrity);
-            
-            PlayImpact(collision, impactForce);            
+            currentIntegrity -= impactForce;            
+            PlayImpact(collision, impactForce);
+            recentDamage += impactForce;
         }
     }
 
