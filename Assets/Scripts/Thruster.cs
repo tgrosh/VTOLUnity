@@ -8,6 +8,8 @@ public class Thruster : MonoBehaviour {
     public float thrustValue;
     public ParticleSystem engine;
     public ParticleSystem trail;
+    public Light engineLight;
+    public float engineLightPower;
     public AudioSource thrusterAudio;
     public Rigidbody forceBody;
     public FuelTank fuelTank;
@@ -27,7 +29,7 @@ public class Thruster : MonoBehaviour {
     float thrusterCutoutCurrent = 0f;
     ParticleSystem.MainModule engineMain;
     ParticleSystem.MainModule trailMain;
-    ParticleSystem.EmissionModule trailEmission;  
+    ParticleSystem.EmissionModule trailEmission;
     float engineSizeMax;
     float engineSpeedMax;
     float trailSizeMax;
@@ -136,6 +138,8 @@ public class Thruster : MonoBehaviour {
         trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
         thrusterAudio.pitch = thrustValue;
         thrusterAudio.volume = thrustValue;
+
+        engineLight.intensity = thrustValue * engineLightPower;
 
         if (!cutout && thrustValue > 0)
         {
