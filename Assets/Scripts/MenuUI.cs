@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 
 public class MenuUI : MonoBehaviour {
-    public Cinemachine.CinemachineVirtualCamera MenuCam;
-    public GameObject InputController;
+    public GameObject startTimeline;
 
     void Start()
     {
-        InputController.SetActive(false);
+        
     }
 
     void Update()
     {
         //look for Start Button
-        if (Input.GetButtonDown("Start"))
+        if (Gamepad.current.startButton.wasPressedThisFrame)
         {
             OnStartPressed();
         }
@@ -24,7 +24,7 @@ public class MenuUI : MonoBehaviour {
     public void OnStartPressed()
     {
         //temporary code
-        GameObject.Find("IntroTimeline").GetComponent<PlayableDirector>().Play();
+        startTimeline.GetComponent<PlayableDirector>().Play();
     }
 
     public void Hide()
