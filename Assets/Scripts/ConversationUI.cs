@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ConversationUI : MonoBehaviour {
     public Text conversationTitle;
     public AutoType conversationText;
+    public Conversation conversation;
 
-    Conversation conversation;
     int currentMessage = 0;
     RectTransform rect;
     CanvasGroup group;

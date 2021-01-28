@@ -23,7 +23,6 @@ public class MenuUI : MonoBehaviour {
 
     public void OnStartPressed()
     {
-        //temporary code
         startTimeline.GetComponent<PlayableDirector>().Play();
     }
 
