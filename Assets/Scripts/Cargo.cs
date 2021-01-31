@@ -8,9 +8,9 @@ public class Cargo : MonoBehaviour {
     public Bounds GetBounds()
     {
         Bounds combinedBounds = new Bounds(transform.position, Vector3.zero);
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
-        foreach (Renderer renderer in renderers)
-        {
+        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in renderers)
+        {            
             combinedBounds.Encapsulate(renderer.bounds);
         }
 

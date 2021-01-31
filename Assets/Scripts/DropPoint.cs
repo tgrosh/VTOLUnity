@@ -22,5 +22,12 @@ public class DropPoint : MonoBehaviour {
         {
             winchable.winchPoint.hook.Disconnect();
         }
+
+        Cargo cargo = collision.gameObject.GetComponent<Cargo>();
+
+        if (cargo != null)
+        {
+            Destroy(cargo, 1f);
+        }
     }
 }

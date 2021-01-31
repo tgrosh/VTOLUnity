@@ -20,6 +20,7 @@ public class Transport : Explodable {
     public GameObject damageTextPrefab;
     public Scanner scanner;
     public Transform cargoDropPoint;
+    public float cargoSensorRadius;
     public ParticleSystem impactParticles;
     public GameObject impactDecal;
     public TransportDamageModel damageModel;
@@ -53,6 +54,7 @@ public class Transport : Explodable {
         rotationSpeed = 10;
         impactDamageThreshold = 150;
         cargoPickupMax = .5f;
+        cargoSensorRadius = 1f;
     }
 
     // Use this for initialization
@@ -114,7 +116,7 @@ public class Transport : Explodable {
         } else
         {
             RaycastHit hit;
-            Physics.Raycast(cargoDropPoint.transform.position, Vector3.down, out hit);
+            Physics.SphereCast(cargoDropPoint.transform.position, cargoSensorRadius, Vector3.down, out hit);
             
             if (hit.collider != null)
             {

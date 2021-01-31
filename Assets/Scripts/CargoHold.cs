@@ -18,6 +18,10 @@ public class CargoHold : MonoBehaviour
     {
         if (this._cargo.Add(cargo))
         {
+            if (cargo.GetComponent<Objective>() != null)
+            {
+                cargo.GetComponent<Objective>().CollectCargo();
+            }
             cargo.gameObject.SetActive(false);
             cargo.gameObject.transform.SetParent(this.gameObject.transform);
             return true;

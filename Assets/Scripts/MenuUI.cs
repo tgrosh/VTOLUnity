@@ -7,11 +7,6 @@ using UnityEngine.Playables;
 public class MenuUI : MonoBehaviour {
     public GameObject startTimeline;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         //look for Start Button

@@ -1,99 +1,275 @@
 fileFormatVersion: 2
 guid: 428535dad3389d84591d142c70582045
-timeCreated: 1524868022
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Cube
-    100002: Cube_001
-    100004: Cylinder
-    100006: Cylinder_001
-    100008: Cylinder_002
-    100010: Cylinder_003
-    100012: Cylinder_004
-    100014: Cylinder_005
-    100016: //RootNode
-    100018: TruckBody
-    100020: TruckBox
-    100022: Wheel
-    100024: Wheel_001
-    100026: Wheel_002
-    100028: Wheel_003
-    100030: Wheel_004
-    100032: Wheelk
-    100034: Wheel_005
-    400000: Cube
-    400002: Cube_001
-    400004: Cylinder
-    400006: Cylinder_001
-    400008: Cylinder_002
-    400010: Cylinder_003
-    400012: Cylinder_004
-    400014: Cylinder_005
-    400016: //RootNode
-    400018: TruckBody
-    400020: TruckBox
-    400022: Wheel
-    400024: Wheel_001
-    400026: Wheel_002
-    400028: Wheel_003
-    400030: Wheel_004
-    400032: Wheelk
-    400034: Wheel_005
-    2300000: Cube
-    2300002: Cube_001
-    2300004: Cylinder
-    2300006: Cylinder_001
-    2300008: Cylinder_002
-    2300010: Cylinder_003
-    2300012: Cylinder_004
-    2300014: Cylinder_005
-    2300016: TruckBody
-    2300018: TruckBox
-    2300020: Wheel
-    2300022: Wheel_001
-    2300024: Wheel_002
-    2300026: Wheel_003
-    2300028: Wheel_004
-    2300030: Wheelk
-    2300032: Wheel_005
-    3300000: Cube
-    3300002: Cube_001
-    3300004: Cylinder
-    3300006: Cylinder_001
-    3300008: Cylinder_002
-    3300010: Cylinder_003
-    3300012: Cylinder_004
-    3300014: Cylinder_005
-    3300016: TruckBody
-    3300018: TruckBox
-    3300020: Wheel
-    3300022: Wheel_001
-    3300024: Wheel_002
-    3300026: Wheel_003
-    3300028: Wheel_004
-    3300030: Wheelk
-    3300032: Wheel_005
-    4300000: Cylinder_005
-    4300002: Cylinder_004
-    4300004: Cylinder_003
-    4300006: Cylinder_002
-    4300008: Cylinder_001
-    4300010: Cylinder
-    4300012: Cube_001
-    4300014: Cube
-    4300016: Wheel
-    4300018: Wheelk
-    4300020: Wheel_001
-    4300022: Wheel_002
-    4300024: Wheel_003
-    4300026: Wheel_004
-    4300028: TruckBox
-    4300030: TruckBody
-    4300032: Wheel_005
-    7400000: Default Take
-    9500000: //RootNode
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Cube
+  - first:
+      1: 100002
+    second: Cube_001
+  - first:
+      1: 100004
+    second: Cylinder
+  - first:
+      1: 100006
+    second: Cylinder_001
+  - first:
+      1: 100008
+    second: Cylinder_002
+  - first:
+      1: 100010
+    second: Cylinder_003
+  - first:
+      1: 100012
+    second: Cylinder_004
+  - first:
+      1: 100014
+    second: Cylinder_005
+  - first:
+      1: 100016
+    second: //RootNode
+  - first:
+      1: 100018
+    second: TruckBody
+  - first:
+      1: 100020
+    second: TruckBox
+  - first:
+      1: 100022
+    second: Wheel
+  - first:
+      1: 100024
+    second: Wheel_001
+  - first:
+      1: 100026
+    second: Wheel_002
+  - first:
+      1: 100028
+    second: Wheel_003
+  - first:
+      1: 100030
+    second: Wheel_004
+  - first:
+      1: 100032
+    second: Wheelk
+  - first:
+      1: 100034
+    second: Wheel_005
+  - first:
+      4: 400000
+    second: Cube
+  - first:
+      4: 400002
+    second: Cube_001
+  - first:
+      4: 400004
+    second: Cylinder
+  - first:
+      4: 400006
+    second: Cylinder_001
+  - first:
+      4: 400008
+    second: Cylinder_002
+  - first:
+      4: 400010
+    second: Cylinder_003
+  - first:
+      4: 400012
+    second: Cylinder_004
+  - first:
+      4: 400014
+    second: Cylinder_005
+  - first:
+      4: 400016
+    second: //RootNode
+  - first:
+      4: 400018
+    second: TruckBody
+  - first:
+      4: 400020
+    second: TruckBox
+  - first:
+      4: 400022
+    second: Wheel
+  - first:
+      4: 400024
+    second: Wheel_001
+  - first:
+      4: 400026
+    second: Wheel_002
+  - first:
+      4: 400028
+    second: Wheel_003
+  - first:
+      4: 400030
+    second: Wheel_004
+  - first:
+      4: 400032
+    second: Wheelk
+  - first:
+      4: 400034
+    second: Wheel_005
+  - first:
+      23: 2300000
+    second: Cube
+  - first:
+      23: 2300002
+    second: Cube_001
+  - first:
+      23: 2300004
+    second: Cylinder
+  - first:
+      23: 2300006
+    second: Cylinder_001
+  - first:
+      23: 2300008
+    second: Cylinder_002
+  - first:
+      23: 2300010
+    second: Cylinder_003
+  - first:
+      23: 2300012
+    second: Cylinder_004
+  - first:
+      23: 2300014
+    second: Cylinder_005
+  - first:
+      23: 2300016
+    second: TruckBody
+  - first:
+      23: 2300018
+    second: TruckBox
+  - first:
+      23: 2300020
+    second: Wheel
+  - first:
+      23: 2300022
+    second: Wheel_001
+  - first:
+      23: 2300024
+    second: Wheel_002
+  - first:
+      23: 2300026
+    second: Wheel_003
+  - first:
+      23: 2300028
+    second: Wheel_004
+  - first:
+      23: 2300030
+    second: Wheelk
+  - first:
+      23: 2300032
+    second: Wheel_005
+  - first:
+      33: 3300000
+    second: Cube
+  - first:
+      33: 3300002
+    second: Cube_001
+  - first:
+      33: 3300004
+    second: Cylinder
+  - first:
+      33: 3300006
+    second: Cylinder_001
+  - first:
+      33: 3300008
+    second: Cylinder_002
+  - first:
+      33: 3300010
+    second: Cylinder_003
+  - first:
+      33: 3300012
+    second: Cylinder_004
+  - first:
+      33: 3300014
+    second: Cylinder_005
+  - first:
+      33: 3300016
+    second: TruckBody
+  - first:
+      33: 3300018
+    second: TruckBox
+  - first:
+      33: 3300020
+    second: Wheel
+  - first:
+      33: 3300022
+    second: Wheel_001
+  - first:
+      33: 3300024
+    second: Wheel_002
+  - first:
+      33: 3300026
+    second: Wheel_003
+  - first:
+      33: 3300028
+    second: Wheel_004
+  - first:
+      33: 3300030
+    second: Wheelk
+  - first:
+      33: 3300032
+    second: Wheel_005
+  - first:
+      43: 4300000
+    second: Cylinder_005
+  - first:
+      43: 4300002
+    second: Cylinder_004
+  - first:
+      43: 4300004
+    second: Cylinder_003
+  - first:
+      43: 4300006
+    second: Cylinder_002
+  - first:
+      43: 4300008
+    second: Cylinder_001
+  - first:
+      43: 4300010
+    second: Cylinder
+  - first:
+      43: 4300012
+    second: Cube_001
+  - first:
+      43: 4300014
+    second: Cube
+  - first:
+      43: 4300016
+    second: Wheel
+  - first:
+      43: 4300018
+    second: Wheelk
+  - first:
+      43: 4300020
+    second: Wheel_001
+  - first:
+      43: 4300022
+    second: Wheel_002
+  - first:
+      43: 4300024
+    second: Wheel_003
+  - first:
+      43: 4300026
+    second: Wheel_004
+  - first:
+      43: 4300028
+    second: TruckBox
+  - first:
+      43: 4300030
+    second: TruckBody
+  - first:
+      43: 4300032
+    second: Wheel_005
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -121,7 +297,7 @@ ModelImporter:
       name: TruckTrim
     second: {fileID: 2100000, guid: 6203fb20fe59ffb409ee96b52cdeffff, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -138,6 +314,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -151,20 +328,32 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -172,10 +361,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -185,14 +377,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
