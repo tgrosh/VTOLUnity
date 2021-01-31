@@ -7,10 +7,10 @@ public class Thruster : MonoBehaviour {
     public float thrustForce;
     public float thrustValue;
     public ParticleSystem engine;
-    public ParticleSystem trail;
     public Light engineLight;
     public float engineLightPower;
     public AudioSource thrusterAudio;
+    public AudioSource thrusterMixAudio;
     public Rigidbody forceBody;
     public FuelTank fuelTank;
     public ParticleSystem[] cutoffParticles;
@@ -28,33 +28,17 @@ public class Thruster : MonoBehaviour {
     bool cutout;
     float thrusterCutoutCurrent = 0f;
     ParticleSystem.MainModule engineMain;
-    ParticleSystem.MainModule trailMain;
-    ParticleSystem.EmissionModule trailEmission;
     float engineSizeMax;
     float engineSpeedMax;
-    float trailSizeMax;
-    float trailSpeedMax;
-    float trailEmissionRateMax;
 
     // Use this for initialization
     void Start () {
         engineMain = engine.main;
-        trailMain = trail.main;
-        trailEmission = trail.emission;
 
         engineSizeMax = engineMain.startSize.constant;
         engineSpeedMax = engineMain.startSpeed.constant;
-        trailSizeMax = trailMain.startSize.constant;
-        trailSpeedMax = trailMain.startSpeed.constant;
-        trailEmissionRateMax = trail.emission.rateOverTime.constant;
     }
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         if (erratic || cutout)
@@ -133,11 +117,8 @@ public class Thruster : MonoBehaviour {
 
         engineMain.startSize = engineSizeMax * thrustValue;
         engineMain.startSpeed = engineSpeedMax * thrustValue;
-        trailMain.startSize = trailSizeMax * thrustValue;
-        trailMain.startSpeed = trailSpeedMax * thrustValue;
-        trailEmission.rateOverTime = trailEmissionRateMax * thrustValue;
-        thrusterAudio.pitch = thrustValue;
-        thrusterAudio.volume = thrustValue;
+        thrusterAudio.volume = thrustValue * .5f;
+        thrusterMixAudio.volume = -.5f + thrustValue;
 
         engineLight.intensity = thrustValue * engineLightPower;
 
