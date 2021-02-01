@@ -7,26 +7,17 @@ public class Objective : MonoBehaviour
 {
     public PlayableDirector timeline;
     public AudioClip clip;
-    public bool transportEnterable;
-    public bool cargoCollectable;
-    public bool cargoDroppable;
+    public bool isComplete;
 
     bool played;
-
-    private void OnTriggerEnter(Collider other)
+    
+    protected void OnComplete()
     {
-        if (transportEnterable && other.GetComponentInParent<Transport>() != null)
-        {
-            Play();
-        }
-
-        if (cargoDroppable && other.GetComponentInParent<Cargo>() != null)
-        {
-            Play();
-        }
+        isComplete = true;
+        Play();
     }
 
-    private void Play()
+    protected void Play()
     {
         if (clip != null && !played)
         {
@@ -41,11 +32,4 @@ public class Objective : MonoBehaviour
         }
     }
 
-    public void CollectCargo()
-    {
-        if (cargoCollectable)
-        {
-            Play();
-        }
-    }
 }
