@@ -21,6 +21,7 @@ public class Transport : Explodable {
     public Scanner scanner;
     public Transform cargoDropPoint;
     public float cargoSensorRadius;
+    public LayerMask cargoSensorMask;
     public ParticleSystem impactParticles;
     public GameObject impactDecal;
     public TransportDamageModel damageModel;
@@ -115,39 +116,43 @@ public class Transport : Explodable {
             }
         } else
         {
-            RaycastHit hit;
-            Physics.SphereCast(cargoDropPoint.transform.position, cargoSensorRadius, Vector3.down, out hit);
-            
-            if (hit.collider != null)
+            RaycastHit[] hits;
+            hits = Physics.SphereCastAll(cargoDropPoint.transform.position, cargoSensorRadius, Vector3.down, 30f, cargoSensorMask);
+
+            foreach (RaycastHit hit in hits)
             {
-                if (cargoHold.Peek() != null)
+                if (hit.collider != null)
                 {
-                    cargoDropSafe = (hit.distance * .75f > cargoHold.Peek().GetBounds().size.y);
-                }
-
-                bool landing = hit.collider.GetComponent<Pad>() != null;
-                foreach (GameObject light in landingLights)
-                {
-                    light.SetActive(landing);
-                }
-
-                if (Gamepad.current.rightTrigger.isPressed && hit.distance < cargoPickupMax)
-                {  
-                    Cargo cargo = hit.collider.gameObject.GetComponent<Cargo>();
-                    if (cargo != null)
+                    if (cargoHold.Peek() != null)
                     {
-                        StoreCargo(cargo);
-                    }           
-                }                
-            } else
-            {
-                cargoDropSafe = true;
+                        cargoDropSafe = (hit.distance > cargoHold.Peek().GetBounds().size.y);
+                    }
 
-                foreach (GameObject light in landingLights)
-                {
-                    light.SetActive(false);
+                    bool landing = hit.collider.GetComponent<Pad>() != null;
+                    foreach (GameObject light in landingLights)
+                    {
+                        light.SetActive(landing);
+                    }
+
+                    if (Gamepad.current.rightTrigger.isPressed && hit.distance < cargoPickupMax)
+                    {
+                        Cargo cargo = hit.collider.gameObject.GetComponent<Cargo>();
+                        if (cargo != null)
+                        {
+                            StoreCargo(cargo);
+                        }
+                    }
                 }
-            }            
+                else
+                {
+                    cargoDropSafe = true;
+
+                    foreach (GameObject light in landingLights)
+                    {
+                        light.SetActive(false);
+                    }
+                }
+            }
 
             if (Gamepad.current.leftTrigger.isPressed)
             {
