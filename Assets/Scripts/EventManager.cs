@@ -5,7 +5,12 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
-    public Dictionary<string, UnityEvent<GameObject>> eventDictionary;
+    public Dictionary<Events, UnityEvent<GameObject>> eventDictionary;
+    public enum Events
+    {
+        CargoPickup,
+        CargoDelivery
+    }
 
     private static EventManager eventManager;
     public static EventManager instance
@@ -34,11 +39,11 @@ public class EventManager : MonoBehaviour
     {
         if (eventDictionary == null)
         {
-            eventDictionary = new Dictionary<string, UnityEvent<GameObject>>();
+            eventDictionary = new Dictionary<Events, UnityEvent<GameObject>>();
         }
     }
 
-    public static void StartListening(string eventName, UnityAction<GameObject> listener)
+    public static void StartListening(Events eventName, UnityAction<GameObject> listener)
     {
         UnityEvent<GameObject> thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
@@ -53,7 +58,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public static void StopListening(string eventName, UnityAction<GameObject> listener)
+    public static void StopListening(Events eventName, UnityAction<GameObject> listener)
     {
         if (eventManager == null) return;
         UnityEvent<GameObject> thisEvent = null;
@@ -63,7 +68,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public static void TriggerEvent(string eventName, GameObject gameObject)
+    public static void TriggerEvent(Events eventName, GameObject gameObject)
     {
         UnityEvent<GameObject> thisEvent = null;
         if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))

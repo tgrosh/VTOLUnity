@@ -7,8 +7,10 @@ namespace Assets.Scripts
     {
         private void OnTriggerEnter(Collider other)
         {
-            EventManager.TriggerEvent("TransportEnteredArea", this.gameObject);
-            OnComplete();
+            if (other.GetComponentInParent<Transport>())
+            {
+                OnComplete();
+            }
         }
     }
 }

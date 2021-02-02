@@ -20,7 +20,7 @@ public class CargoHold : MonoBehaviour
         {
             if (cargo.GetComponent<Objective>() != null)
             {
-                //TODO cargo.GetComponent<Objective>().CollectCargo();
+                EventManager.TriggerEvent(EventManager.Events.CargoPickup, cargo.gameObject);
             }
             cargo.gameObject.SetActive(false);
             cargo.gameObject.transform.SetParent(this.gameObject.transform);
