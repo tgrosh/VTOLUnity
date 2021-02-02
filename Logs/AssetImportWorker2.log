@@ -250,3 +250,147 @@ System memory in use after: 187.9 MB.
 Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4201.
 Total: 2.662900 ms (FindLiveObjects: 0.346400 ms CreateObjectMapping: 0.143100 ms MarkObjects: 1.955800 ms  DeleteObjects: 0.216900 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 1996.568235 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitInput.hlsl
+  artifactKey: Guid(a817cb90496894b368593402e13b040c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Terrain/TerrainLitInput.hlsl using Guid(a817cb90496894b368593402e13b040c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff32cb0c25b373e257811dc2601f28cf') in 0.078830 seconds
+  Import took 0.089183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1730.529112 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06fb76ea046aeefd8affdcbc7d9b2073') in 0.118958 seconds
+  Import took 0.125438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.463375 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5cf57e30145bdb20bf077c1d5bcff52') in 0.080522 seconds
+  Import took 0.086555 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.460046 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c4992fad5d0823fa448308e7a550a74') in 0.015752 seconds
+  Import took 0.022278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.697234 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fd6296a485221f43501f9c566379f0d') in 0.014162 seconds
+  Import took 0.028284 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.940427 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27794bd8cad1d3d518bb6c094515f674') in 0.014801 seconds
+  Import took 0.020895 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.393143 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0315b899ec80662fc230deb578c194dc') in 0.014228 seconds
+  Import took 0.020142 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001306 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.399 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3515 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 190.7 MB.
+System memory in use after: 190.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4209.
+Total: 3.063400 ms (FindLiveObjects: 0.424800 ms CreateObjectMapping: 0.178300 ms MarkObjects: 2.231200 ms  DeleteObjects: 0.228200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 485.508581 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dae9f5b4e4ffb9a79e56dc3a4231c7d2') in 0.056476 seconds
+  Import took 0.063574 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002194 seconds.
+  path: Assets/img/Libby-Default.png
+  artifactKey: Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/img/Libby-Default.png using Guid(a2f3deed798892d4aaf7dc162e935140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dae9f5b4e4ffb9a79e56dc3a4231c7d2') in 0.011528 seconds
+  Import took 0.016966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 175.406864 seconds.
+  path: Assets/Prefabs/ConversationCanvas 1.prefab
+  artifactKey: Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ConversationCanvas 1.prefab using Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1af8ac55a5e5a05a55249f8152362af4') in 0.037647 seconds
+  Import took 0.045007 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002177 seconds.
+  path: Assets/Prefabs/ConversationCanvas 1.prefab
+  artifactKey: Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ConversationCanvas 1.prefab using Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1af8ac55a5e5a05a55249f8152362af4') in 0.006090 seconds
+  Import took 0.011675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 400.877599 seconds.
+  path: Assets/Prefabs/ConversationCanvas 1.prefab
+  artifactKey: Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ConversationCanvas 1.prefab using Guid(fe61a0d03daf0d242bb4194f0e31d8e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04d308ace45c089c9267ec4efcbff611') in 0.006073 seconds
+  Import took 0.017719 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001505 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.446 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3515 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 190.7 MB.
+System memory in use after: 190.9 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4212.
+Total: 3.567100 ms (FindLiveObjects: 0.464800 ms CreateObjectMapping: 0.207600 ms MarkObjects: 2.659200 ms  DeleteObjects: 0.234000 ms)
+
