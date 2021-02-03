@@ -4802,3 +4802,188 @@ Received Import Request.
 Start importing Assets/3D Game Kit - Environment Pack/Environment/Vegetation/Misc/Textures/Grass01_Height.tiff using Guid(df60308f4b032f2448fb008b9c3b5164) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba82d0ab368e739260543ea5b3e90444') in 0.113905 seconds
   Import took 0.123965 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002918 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.012 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.98 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3364 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.6 MB.
+System memory in use after: 157.8 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 4072.
+Total: 6.966000 ms (FindLiveObjects: 0.436000 ms CreateObjectMapping: 0.289600 ms MarkObjects: 6.183400 ms  DeleteObjects: 0.054500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002639 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.07 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.666 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.11 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3364 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.7 MB.
+System memory in use after: 158.0 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 4074.
+Total: 3.528000 ms (FindLiveObjects: 0.379300 ms CreateObjectMapping: 0.183200 ms MarkObjects: 2.937600 ms  DeleteObjects: 0.026000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 85754.708104 seconds.
+  path: Assets/Models/Outpost.blend
+  artifactKey: Guid(df1e07a7e0823f84dbfe07e03930f914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Outpost.blend using Guid(df1e07a7e0823f84dbfe07e03930f914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47f4c02004fac88c0da8939f9d0a6631') in 3.025402 seconds
+  Import took 3.067203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.384289 seconds.
+  path: Assets/Models/Outpost.blend
+  artifactKey: Guid(df1e07a7e0823f84dbfe07e03930f914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Outpost.blend using Guid(df1e07a7e0823f84dbfe07e03930f914) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d1d9710a6a1b0f0f15511a83ff0ff38') in 0.170496 seconds
+  Import took 0.203170 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 201.428211 seconds.
+  path: Assets/Samples/Visual Effect Graph/10.2.2/VisualEffectGraph Additions/Textures/Generic/PerlinNoise01.png
+  artifactKey: Guid(af8edf011e1423348a4a2c4fb28dcf79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Visual Effect Graph/10.2.2/VisualEffectGraph Additions/Textures/Generic/PerlinNoise01.png using Guid(af8edf011e1423348a4a2c4fb28dcf79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e44504ed64d0a5cb1d97ff120747a9e5') in 0.165566 seconds
+  Import took 0.187899 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000440 seconds.
+  path: Assets/Samples/Visual Effect Graph/10.2.2/VisualEffectGraph Additions/Textures/Generic/PerlinNoise02.png
+  artifactKey: Guid(77760d890f70caa47a9a6627fc70e4ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Visual Effect Graph/10.2.2/VisualEffectGraph Additions/Textures/Generic/PerlinNoise02.png using Guid(77760d890f70caa47a9a6627fc70e4ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c03d6e86cfed832ab5fcfea76630e9e1') in 0.067393 seconds
+  Import took 0.101431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.158913 seconds.
+  path: Assets/Fantasy Forest Set/Sources/Textures/pine_diffuse.png
+  artifactKey: Guid(680fa83390f821542b6df86f4e455cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Sources/Textures/pine_diffuse.png using Guid(680fa83390f821542b6df86f4e455cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e636a5d515413f483b4f5ad413afeb') in 0.180264 seconds
+  Import took 0.212428 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/FantasyEnvironments/Environments/Textures/Plant.tga
+  artifactKey: Guid(4ed602243d46b7042bf79ef54616ebf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FantasyEnvironments/Environments/Textures/Plant.tga using Guid(4ed602243d46b7042bf79ef54616ebf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df79d5e9f03d6cdc125d66d51f23d7b8') in 0.158666 seconds
+  Import took 0.195052 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/Fantasy Forest Set/Sources/Textures/pine_diffuse.png
+  artifactKey: Guid(680fa83390f821542b6df86f4e455cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Sources/Textures/pine_diffuse.png using Guid(680fa83390f821542b6df86f4e455cf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e636a5d515413f483b4f5ad413afeb') in 0.037871 seconds
+  Import took 0.049505 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/FantasyEnvironments/Environments/Textures/Plant.tga
+  artifactKey: Guid(4ed602243d46b7042bf79ef54616ebf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FantasyEnvironments/Environments/Textures/Plant.tga using Guid(4ed602243d46b7042bf79ef54616ebf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df79d5e9f03d6cdc125d66d51f23d7b8') in 0.028638 seconds
+  Import took 0.039421 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Samples/Terrain Tools/0.1.0-preview/Terrain Assets/BrushTextures/plateau01.tif
+  artifactKey: Guid(626e11c44313fda43a6979c9a04cd12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Terrain Tools/0.1.0-preview/Terrain Assets/BrushTextures/plateau01.tif using Guid(626e11c44313fda43a6979c9a04cd12e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa4d6b34b4e7da1160fbcaf45f66b66d') in 0.111712 seconds
+  Import took 0.216595 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 535.877316 seconds.
+  path: Assets/Prefabs/Outpost.prefab
+  artifactKey: Guid(163cdec9aabdaf74f89f89a4b226a92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Outpost.prefab using Guid(163cdec9aabdaf74f89f89a4b226a92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a55b156f96b5cf336de90c18668081b') in 1.713288 seconds
+  Import took 1.762249 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.973021 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Grass-2.prefab
+  artifactKey: Guid(d26414d3d0f94114b94f9167c7104b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Grass-2.prefab using Guid(d26414d3d0f94114b94f9167c7104b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0435b1fde2cb9307f5ded17065799cc0') in 0.972041 seconds
+  Import took 1.003963 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000383 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Shrub-1a.prefab
+  artifactKey: Guid(2335670172d14654a9f4f632d1bfc196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Shrub-1a.prefab using Guid(2335670172d14654a9f4f632d1bfc196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3274d4fcb51985d300068b8a34230ea') in 0.302527 seconds
+  Import took 0.326385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000365 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Grass-2a.prefab
+  artifactKey: Guid(b2073c1a4f2f89145bdde52c5401acd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Grass-2a.prefab using Guid(b2073c1a4f2f89145bdde52c5401acd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7da202e080b8ed687983fb39d1dc116') in 0.064357 seconds
+  Import took 0.090401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000357 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-3.prefab
+  artifactKey: Guid(7bd6629adca0e514f82d999d076ff30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-3.prefab using Guid(7bd6629adca0e514f82d999d076ff30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dff4720e48919a62ae370a8ec1629a5') in 0.372223 seconds
+  Import took 0.386630 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000366 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab
+  artifactKey: Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab using Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '645846f0b670dec02c69e048e248158c') in 0.278623 seconds
+  Import took 0.313258 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000369 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-2.prefab
+  artifactKey: Guid(270831b068c0a074f89e316bd92372a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-2.prefab using Guid(270831b068c0a074f89e316bd92372a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4680f1761e5663855814626cb89eb74c') in 0.212125 seconds
+  Import took 0.219361 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000379 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Shrub-1.prefab
+  artifactKey: Guid(ca90765c45209df47b2e0751e54ecff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Shrub-1.prefab using Guid(ca90765c45209df47b2e0751e54ecff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4737f96aa067a545765d821c3aa2067d') in 0.068794 seconds
+  Import took 0.078219 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
