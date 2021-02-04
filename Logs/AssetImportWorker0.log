@@ -578,3 +578,91 @@ System memory in use after: 172.2 MB.
 Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4278.
 Total: 3.011600 ms (FindLiveObjects: 0.404700 ms CreateObjectMapping: 0.184500 ms MarkObjects: 2.274100 ms  DeleteObjects: 0.147600 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001496 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.99 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.405 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3518 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 172.1 MB.
+System memory in use after: 172.3 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 4280.
+Total: 2.752100 ms (FindLiveObjects: 0.391400 ms CreateObjectMapping: 0.163400 ms MarkObjects: 2.064200 ms  DeleteObjects: 0.132300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 75247.530232 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Grass-2.prefab
+  artifactKey: Guid(d26414d3d0f94114b94f9167c7104b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Grass-2.prefab using Guid(d26414d3d0f94114b94f9167c7104b81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '342c62cfdab6cc26fd44eb11505a81cc') in 0.816794 seconds
+  Import took 0.828962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-3.prefab
+  artifactKey: Guid(7bd6629adca0e514f82d999d076ff30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-3.prefab using Guid(7bd6629adca0e514f82d999d076ff30c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9ad9c913169eb184fac2c069d702df2') in 0.405917 seconds
+  Import took 0.411309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-2.prefab
+  artifactKey: Guid(270831b068c0a074f89e316bd92372a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-2.prefab using Guid(270831b068c0a074f89e316bd92372a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fa71bd01fe083bd55e96d48b3a22c97') in 0.068281 seconds
+  Import took 0.074063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Shrub-1a.prefab
+  artifactKey: Guid(2335670172d14654a9f4f632d1bfc196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Shrub-1a.prefab using Guid(2335670172d14654a9f4f632d1bfc196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f49f03134c46f09ef017697c4e15314a') in 0.054169 seconds
+  Import took 0.060117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Grass-2a.prefab
+  artifactKey: Guid(b2073c1a4f2f89145bdde52c5401acd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Grass-2a.prefab using Guid(b2073c1a4f2f89145bdde52c5401acd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16f622cd253c4036646859414325cb9b') in 0.016335 seconds
+  Import took 0.022849 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab
+  artifactKey: Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab using Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7589207f619dcd43bcb9063ff8bc34ea') in 0.037951 seconds
+  Import took 0.044157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000159 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Shrub-1.prefab
+  artifactKey: Guid(ca90765c45209df47b2e0751e54ecff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Shrub-1.prefab using Guid(ca90765c45209df47b2e0751e54ecff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f7d9236dc71923238d8ba8728432a3a') in 0.016527 seconds
+  Import took 0.022278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.033451 seconds.
+  path: Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab
+  artifactKey: Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fantasy Forest Set/Prefabs/Rock-1.prefab using Guid(21fe361e82c08e54b8a267303d3f0fc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7589207f619dcd43bcb9063ff8bc34ea') in 0.024123 seconds
+  Import took 0.029635 seconds .
+
