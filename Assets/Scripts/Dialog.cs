@@ -27,10 +27,14 @@ public class Dialog : MonoBehaviour
         moreDialog = dialogs.Length > currentIndex + 1;
         uiText.text = dialogs[currentIndex].text;
         uiIcon.sprite = dialogs[currentIndex].icon;
+        uiMore.gameObject.SetActive(moreDialog);
     }
 
     public void MoreDialogClick()
     {
-        currentIndex++;
+        if (currentIndex <= dialogs.Length)
+        {
+            currentIndex++;
+        }
     }
 }
