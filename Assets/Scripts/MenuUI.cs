@@ -10,7 +10,8 @@ public class MenuUI : MonoBehaviour {
     void Update()
     {
         //look for Start Button
-        if (Gamepad.current.startButton.wasPressedThisFrame)
+        if (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame || 
+            Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             OnStartPressed();
         }
