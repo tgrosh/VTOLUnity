@@ -32,7 +32,7 @@ public class Dialog : MonoBehaviour
         uiIcon.sprite = dialogs[currentIndex].icon;
 
         uiPanel.enabled = dialogs.Count > 0;
-        uiIcon.gameObject.SetActive(dialogs.Count > 0);
+        uiIcon.gameObject.SetActive(dialogs.Count > 0 && uiIcon.sprite != null);
         uiMore.gameObject.SetActive(moreDialog);
 
         if (Gamepad.current.aButton.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
