@@ -7,17 +7,25 @@ public class Objective : MonoBehaviour
 {
     public PlayableDirector timeline;
     public AudioClip clip;
+    public GameObject effectPrefab;
     public bool isComplete;
 
     bool played;
-    
+    GameObject objectiveEffect;
+
+    protected virtual void Start()
+    {
+        objectiveEffect = Instantiate(effectPrefab, transform);
+    }
+
     protected void OnComplete()
     {
         isComplete = true;
+        objectiveEffect.SetActive(false);
         Play();
     }
 
-    protected void Play()
+    private void Play()
     {
         if (clip != null && !played)
         {
