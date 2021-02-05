@@ -15,13 +15,13 @@ public class Objective : MonoBehaviour
 
     protected virtual void Start()
     {
-        objectiveEffect = Instantiate(effectPrefab, transform);
+        if (effectPrefab) objectiveEffect = Instantiate(effectPrefab, transform);
     }
 
     protected void OnComplete()
     {
         isComplete = true;
-        objectiveEffect.SetActive(false);
+        if (objectiveEffect) objectiveEffect.SetActive(false);
         Play();
     }
 

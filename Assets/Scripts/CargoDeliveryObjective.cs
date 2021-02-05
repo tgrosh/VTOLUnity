@@ -7,9 +7,10 @@ public class CargoDeliveryObjective : Objective
 {
     public Cargo expectedCargo;
 
-    private void Start()
+    protected override void Start()
     {
         EventManager.StartListening(EventManager.Events.CargoDelivery, OnDelivery);
+        base.Start();
     }
 
     private void OnDelivery(GameObject gameObject)
