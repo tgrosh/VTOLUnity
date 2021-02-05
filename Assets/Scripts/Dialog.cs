@@ -28,14 +28,18 @@ public class Dialog : MonoBehaviour
     void Update()
     {
         moreDialog = dialogs.Count > currentIndex + 1;
-        uiText.text = dialogs[currentIndex].text;
-        uiIcon.sprite = dialogs[currentIndex].icon;
-
         uiPanel.enabled = dialogs.Count > 0;
+        uiText.gameObject.SetActive(dialogs.Count > 0);
         uiIcon.gameObject.SetActive(dialogs.Count > 0 && uiIcon.sprite != null);
         uiMore.gameObject.SetActive(moreDialog);
 
-        if (Gamepad.current.aButton.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (dialogs.Count > 0)
+        {
+            uiText.text = dialogs[currentIndex].text;
+            uiIcon.sprite = dialogs[currentIndex].icon;
+        }
+
+        if (Gamepad.current != null && Gamepad.current.aButton.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             MoreDialogClick();
         }
