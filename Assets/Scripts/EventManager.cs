@@ -9,7 +9,8 @@ public class EventManager : MonoBehaviour
     public enum Events
     {
         CargoPickup,
-        CargoDelivery
+        CargoDelivery,
+        TransportHealthChange
     }
 
     private static EventManager eventManager;
@@ -76,4 +77,5 @@ public class EventManager : MonoBehaviour
             thisEvent.Invoke(gameObject);
         }
     }
+
 }

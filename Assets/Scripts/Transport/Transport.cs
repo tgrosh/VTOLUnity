@@ -15,7 +15,6 @@ public class Transport : Explodable {
     public GameObject actor;
     public GameObject vehicle;
     public Thruster[] thrusters;
-    public Gauge healthGauge;
     public GameObject spotLight;
     public GameObject[] statusLEDs;
     public GameObject[] landingLights;
@@ -90,7 +89,7 @@ public class Transport : Explodable {
             Explode();
         }
 
-        healthGauge.value = currentIntegrity / maxIntegrity;
+        EventManager.TriggerEvent(EventManager.Events.TransportHealthChange, gameObject);
 
         foreach (GameObject led in statusLEDs)
         {
