@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,10 +16,22 @@ public class FuelGauge : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         originalColor = filler.color;
+
+        EventManager.StartListening(EventManager.Events.TransportFuelChange, FuelChange);
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void FuelChange(GameObject fuelTankGameObject)
+    {
+        FuelTank fuelTank = fuelTankGameObject.GetComponent<FuelTank>();
+
+        if (fuelTank.maxFuel > 0)
+        {
+            value = fuelTank.fuelRemaining / fuelTank.maxFuel;
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         filler.fillAmount = value * .5f;
         label.text = (int)(value * 100) + " %";

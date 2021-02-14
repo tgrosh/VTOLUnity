@@ -5,7 +5,6 @@ using UnityEngine;
 public class FuelTank : MonoBehaviour {
     public float fuelRemaining;
     public float maxFuel;
-    public FuelGauge fuelGauge;
 
     // Use this for initialization
     void Start()
@@ -48,9 +47,6 @@ public class FuelTank : MonoBehaviour {
     
     private void SetFuelGauge()
     {
-        if (fuelGauge != null && maxFuel > 0)
-        {
-            fuelGauge.value = fuelRemaining / maxFuel;
-        }
+        EventManager.TriggerEvent(EventManager.Events.TransportFuelChange, gameObject);        
     }
 }

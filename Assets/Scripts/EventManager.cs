@@ -10,7 +10,8 @@ public class EventManager : MonoBehaviour
     {
         CargoPickup,
         CargoDelivery,
-        TransportHealthChange
+        TransportHealthChange,
+        TransportFuelChange
     }
 
     private static EventManager eventManager;
