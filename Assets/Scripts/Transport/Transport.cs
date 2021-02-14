@@ -6,36 +6,42 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Transport : Explodable {
-    public Rigidbody body;
-    public GameObject actor;
-    public GameObject vehicle;
-    public Thruster[] thrusters;
-    public CargoHold cargoHold;
-    public Gauge healthGauge;
-    public GameObject centerOfMass;
-    public GameObject spotLight;
-    public GameObject[] statusLEDs;
-    public GameObject[] landingLights;
-    public GameObject damageCanvas;
-    public GameObject damageTextPrefab;
-    public Scanner scanner;
-    public Transform cargoDropPoint;
-    public float cargoSensorRadius;
-    public LayerMask cargoSensorMask;
-    public ParticleSystem impactParticles;
-    public GameObject impactDecal;
-    public TransportDamageModel damageModel;
-    public AudioSource impactAudio;
     public float maxIntegrity;
     public float currentIntegrity;
     public float impactDamageThreshold;
     public float maxRotation;
     public float rotationSpeed;
-    public bool thrustersEnabled = true;
-    public float cargoPickupMax;
-    public float throttle;
-    public float electrifiedDuration = 0f;
+
+    public GameObject actor;
+    public GameObject vehicle;
+    public Thruster[] thrusters;
+    public Gauge healthGauge;
+    public GameObject spotLight;
+    public GameObject[] statusLEDs;
+    public GameObject[] landingLights;
+    public GameObject damageCanvas;
+    public GameObject damageTextPrefab;
+    public float cargoPickupMaxRange;
+    public float cargoSensorRadius;
+    public LayerMask cargoSensorMask;
+    public Transform cargoDropPoint;
+    public ParticleSystem impactParticles;
+    public GameObject impactDecal;
+    public AudioSource impactAudio;
     public GameObject inputController;
+
+    [HideInInspector]
+    public bool thrustersEnabled = true;
+    [HideInInspector]
+    public float throttle;
+    [HideInInspector]
+    public float electrifiedDuration = 0f;
+
+    Rigidbody body;
+    CargoHold cargoHold;
+    CenterOfMass centerOfMass;
+    Scanner scanner;
+    TransportDamageModel damageModel;
 
     bool inShutdown;
     float shutdownDuration = 5f;
@@ -54,14 +60,21 @@ public class Transport : Explodable {
         maxRotation = 20;
         rotationSpeed = 10;
         impactDamageThreshold = 150;
-        cargoPickupMax = .5f;
+        cargoPickupMaxRange = .5f;
         cargoSensorRadius = 1f;
     }
 
     // Use this for initialization
     void Start()
     {
+        body = GetComponent<Rigidbody>();
+        cargoHold = GetComponent<CargoHold>();
+        centerOfMass = GetComponentInChildren<CenterOfMass>();
+        centerOfMass.body = body;
+        scanner = GetComponentInChildren<Scanner>();
+        damageModel = GetComponentInChildren<TransportDamageModel>();
         currentIntegrity = maxIntegrity;
+
         Explodable e = GetComponent<Explodable>();
         explosionPrefab = e.explosionPrefab;
         explosionForce = e.explosionForce;
@@ -134,7 +147,7 @@ public class Transport : Explodable {
                         light.SetActive(landing);
                     }
 
-                    if (Gamepad.current.rightTrigger.isPressed && hit.distance < cargoPickupMax)
+                    if (Gamepad.current.rightTrigger.isPressed && hit.distance < cargoPickupMaxRange)
                     {
                         Cargo cargo = hit.collider.gameObject.GetComponent<Cargo>();
                         if (cargo != null)
@@ -283,7 +296,7 @@ public class Transport : Explodable {
             thrustersEnabled = false;
             Camera.main.GetComponent<Cinemachine.CinemachineBrain>().ActiveVirtualCamera.Follow = null;
 
-            Destroy(centerOfMass);
+            Destroy(centerOfMass.gameObject);
             Destroy(GetComponent<Rigidbody>());
             foreach (Thruster t in thrusters)
             {
