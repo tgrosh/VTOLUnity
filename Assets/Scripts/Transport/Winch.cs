@@ -9,15 +9,16 @@ public class Winch : MonoBehaviour {
     public GameObject[] links;
     public float winchProximityMax;
     public float winchProximityMin;
-    public AudioSource attachAudio;
-    public AudioSource detachAudio;
+    public AudioClip attachAudio;
+    public AudioClip detachAudio;
 
+    AudioSource audioSource;
     bool winchActive;
     bool triggerPulled;
 
     // Use this for initialization
     void Start () {
-        
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -65,7 +66,7 @@ public class Winch : MonoBehaviour {
         }
         hook.gameObject.SetActive(true);
         hook.Connect(winchPoint);
-        attachAudio.Play();
+        audioSource.PlayOneShot(attachAudio);
     }
 
     public void Disconnect()
@@ -76,6 +77,6 @@ public class Winch : MonoBehaviour {
             o.SetActive(false);
         }
         hook.gameObject.SetActive(false);
-        detachAudio.Play();
+        audioSource.PlayOneShot(detachAudio);
     }
 }
