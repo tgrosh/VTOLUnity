@@ -15,10 +15,6 @@ public class SwitchArea : Switchable {
         Color gizmoColor = new Color(0.901f, 0.678f, 0.898f, 0.25F);
         Gizmos.color = gizmoColor;
         Gizmos.DrawCube(transform.position, GetComponent<BoxCollider>().bounds.size);
-
-        gizmoColor.a = 1f;
-        Gizmos.color = gizmoColor;
-        Gizmos.DrawLine(transform.position, GetComponent<Switch>().target.transform.position);
     }
 
     void Reset()
@@ -31,14 +27,9 @@ public class SwitchArea : Switchable {
     {
         if (!areaActive) return;
 
-        Rigidbody rootRigidBody = collider.gameObject.GetComponentInParent<Rigidbody>();
+        Rigidbody rootRigidBody = collider.attachedRigidbody;
 
         if (rootRigidBody == null)
-        {
-            return;
-        }
-
-        if (currentRoots.Contains(rootRigidBody))
         {
             return;
         }
@@ -48,15 +39,18 @@ public class SwitchArea : Switchable {
             return;
         }
 
+        if (!currentRoots.Contains(rootRigidBody))
+        {
+            GetComponent<Switch>().On(gameObject, persistent);
+        }
         currentRoots.Add(rootRigidBody);
-        GetComponent<Switch>().On(gameObject, persistent);
     }
 
     void OnTriggerExit(Collider collider)
     {
         if (!areaActive) return;
 
-        Rigidbody rootRigidBody = collider.gameObject.GetComponentInParent<Rigidbody>();
+        Rigidbody rootRigidBody = collider.attachedRigidbody;
 
         if (rootRigidBody == null)
         {
@@ -64,10 +58,13 @@ public class SwitchArea : Switchable {
         }
 
         if (currentRoots.Contains(rootRigidBody))
+        {            
+            currentRoots.Remove(rootRigidBody); 
+        }
+        if (!currentRoots.Contains(rootRigidBody))
         {
-            currentRoots.Remove(rootRigidBody);
             GetComponent<Switch>().Off(gameObject);
-        }        
+        }
     }
 
     public override void On(GameObject origin)
