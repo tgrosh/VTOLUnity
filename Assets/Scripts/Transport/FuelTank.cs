@@ -47,6 +47,6 @@ public class FuelTank : MonoBehaviour {
     
     private void SetFuelGauge()
     {
-        EventManager.TriggerEvent(EventManager.Events.TransportFuelChange, gameObject);        
+        EventManager.TriggerEvent(EventManager.Events.TransportFuelChange, gameObject);
     }
 }

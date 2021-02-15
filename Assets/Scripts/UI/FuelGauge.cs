@@ -13,12 +13,13 @@ public class FuelGauge : MonoBehaviour {
 
     float colorTranistionSpeed = 5f;
     Color originalColor;
-	// Use this for initialization
-	void Start () {
-        originalColor = filler.color;
+    // Use this for initialization
 
+    private void Awake()
+    {
+        originalColor = filler.color;
         EventManager.StartListening(EventManager.Events.TransportFuelChange, FuelChange);
-	}
+    }
 
     private void FuelChange(GameObject fuelTankGameObject)
     {
